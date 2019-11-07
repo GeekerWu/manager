@@ -15,6 +15,12 @@ import './core/use'
 import './permission' // permission control
 import './utils/filter' // global filter
 
+//support video js
+import Video from 'video.js'
+import 'video.js/dist/video-js.css'
+Vue.prototype.$video = Video
+
+
 Vue.config.productionTip = false
 
 // mount axios Vue.$http and this.$http
