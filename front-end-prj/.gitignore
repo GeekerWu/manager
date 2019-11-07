@@ -1,0 +1,27 @@
+# IDEs and editors
+/.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# dist
+/dist/*
+dist
+
+# package.json
+#package-lock.json
+
+
+# dependencies
+/node_modules/*
+node_modules
+
+# misc
+/yarn.lock
+/yarn-error.log
+
+# server config
+vue.config.js
