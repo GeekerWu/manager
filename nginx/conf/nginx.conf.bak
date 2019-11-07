@@ -19,19 +19,18 @@ rtmp {
     #    application live {
     #       live on;
     #        record off;
-     #   }
+    #   }
     #}
-
+    
 	server {
         listen 1935;
         chunk_size 4000;
 
         application show {
             live on;
-
             #enable HLS
             hls on;
-            hls_path /tmp/hls;
+            hls_path /temp/hls;
             hls_fragment 3;
             hls_playlist_length 20;
         }
@@ -92,7 +91,8 @@ http {
 			application/vnd.apple.mpegurl m3u8;
 			video/mp2t ts;
 		}
-		root /tmp/;
+		#root /tmp/;
+		root /temp/;
 		add_header Cache-Control no-cache;
 
 	}
