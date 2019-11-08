@@ -1,0 +1,5 @@
+2019/11/08 18:31:46 [emerg] 67216#93132: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
+2019/11/08 18:33:47 [emerg] 95252#70140: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
+2019/11/08 18:35:51 [emerg] 93276#77904: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
+2019/11/08 18:39:55 [emerg] 82544#25924: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
+2019/11/08 18:40:50 [emerg] 61808#47700: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
