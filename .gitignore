@@ -24,7 +24,7 @@ node_modules
 /yarn-error.log
 
 # server config
-#vue.config.js
+# vue.config.js
 
 # temp config
 /hls/*
