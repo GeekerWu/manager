@@ -2,7 +2,7 @@
 #user  nobody;
 worker_processes  1;
 
-#error_log  logs/error.log;
+error_log  logs/error.log;
 #error_log  logs/error.log  notice;
 #error_log  logs/error.log  info;
 
@@ -13,7 +13,7 @@ events {
     worker_connections  1024;
 }
 
-rtmp {
+#rtmp {
     #server {
     #    listen 1935;
     #    application live {
@@ -22,20 +22,20 @@ rtmp {
     #   }
     #}
     
-	server {
-        listen 1935;
-        chunk_size 4000;
+#	server {
+#        listen 1935;
+#        chunk_size 4000;
 
-        application show {
-            live on;
-            #enable HLS
-            hls on;
-            hls_path /temp/hls;
-            hls_fragment 3;
-            hls_playlist_length 20;
-        }
-    }
-}
+#       application show {
+#            live on;
+#            #enable HLS
+#            hls on;
+#            hls_path /temp/hls;
+#            hls_fragment 3;
+#            hls_playlist_length 20;
+#        }
+#    }
+#}
 
 
 
@@ -59,7 +59,8 @@ http {
 
 
     server {
-        listen       8080;
+
+        listen       8084;
         server_name  localhost;
 
         #charset koi8-r;
@@ -67,10 +68,11 @@ http {
         #access_log  logs/host.access.log  main;
 
         location / {
-            root   D:\video-manager\nginx\html;
+            root   html;
             index  index.html index.htm;
         }
-
+	
+	#HLS tester link is http://localhost:8084/hls/tester.m3u8
 	location /hls {
 		# Disable cache
 		add_header Cache-Control no-cache;
@@ -92,7 +94,7 @@ http {
 			video/mp2t ts;
 		}
 		#root /tmp/;
-		root /temp/;
+		root html;
 		add_header Cache-Control no-cache;
 
 	}

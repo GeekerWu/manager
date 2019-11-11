@@ -3,3 +3,92 @@
 2019/11/08 18:35:51 [emerg] 93276#77904: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
 2019/11/08 18:39:55 [emerg] 82544#25924: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
 2019/11/08 18:40:50 [emerg] 61808#47700: unknown directive "rtmp" in D:\video-manager\nginx/conf/nginx.conf:16
+2019/11/11 14:10:02 [crit] 54800#67040: *1 GetFileAttributesEx() "D:\video-manager
+ginx\html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:10:02 [crit] 54800#67040: *2 CreateFile() "D:\video-manager
+ginx\html/favicon.ico" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2019/11/11 14:14:20 [crit] 54800#67040: *4 GetFileAttributesEx() "D:\video-manager
+ginx\html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:14:20 [crit] 54800#67040: *5 CreateFile() "D:\video-manager
+ginx\html/favicon.ico" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2019/11/11 14:15:05 [crit] 54800#67040: *7 GetFileAttributesEx() "D:\video-manager
+ginx\html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:15:05 [crit] 54800#67040: *8 CreateFile() "D:\video-manager
+ginx\html/favicon.ico" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2019/11/11 14:15:08 [crit] 54800#67040: *9 GetFileAttributesEx() "D:\video-manager
+ginx\html" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET / HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:15:08 [crit] 54800#67040: *10 CreateFile() "D:\video-manager
+ginx\html/favicon.ico" failed (123: The filename, directory name, or volume label syntax is incorrect), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2019/11/11 14:16:22 [error] 71828#53652: *12 CreateFile() "D:\video-manager\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2019/11/11 14:28:39 [warn] 52360#62540: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:28:39 [warn] 52360#62540: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:28:39 [warn] 52360#62540: duplicate extension "ts", content type: "video/mp2t", previous content type: "video/mp2t" in D:\video-manager\nginx/conf/mime.types:85
+2019/11/11 14:28:39 [notice] 52360#62540: signal process started
+2019/11/11 14:28:39 [warn] 68832#95460: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:28:39 [warn] 68832#95460: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:28:39 [warn] 68832#95460: duplicate extension "ts", content type: "video/mp2t", previous content type: "video/mp2t" in D:\video-manager\nginx/conf/mime.types:85
+2019/11/11 14:29:42 [warn] 52316#96428: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:29:42 [warn] 52316#96428: duplicate extension "ts", content type: "video/mp2t", previous content type: "video/mp2t" in D:\video-manager\nginx/conf/mime.types:85
+2019/11/11 14:29:42 [notice] 52316#96428: signal process started
+2019/11/11 14:29:42 [warn] 89888#75372: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:29:42 [warn] 89888#75372: duplicate extension "ts", content type: "video/mp2t", previous content type: "video/mp2t" in D:\video-manager\nginx/conf/mime.types:85
+2019/11/11 14:30:49 [warn] 40852#65660: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:30:49 [notice] 40852#65660: signal process started
+2019/11/11 14:30:49 [warn] 48772#63840: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:32:08 [warn] 42488#92804: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:32:08 [warn] 42488#92804: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:32:08 [notice] 42488#92804: signal process started
+2019/11/11 14:32:08 [warn] 42412#31072: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:32:08 [warn] 42412#31072: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:41:50 [warn] 35676#41084: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:41:50 [warn] 35676#41084: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:41:50 [notice] 35676#41084: signal process started
+2019/11/11 14:41:50 [warn] 78552#53744: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:41:50 [warn] 78552#53744: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:42:19 [error] 71828#53652: *16 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:42:25 [error] 71828#53652: *16 CreateFile() "D:\video-manager\nginx/html/html/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:42:31 [error] 71828#53652: *16 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:42:34 [error] 71828#53652: *16 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:43:44 [warn] 67312#39680: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:43:44 [warn] 67312#39680: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:43:44 [notice] 67312#39680: signal process started
+2019/11/11 14:43:48 [warn] 82760#70532: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:43:48 [warn] 82760#70532: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:43:48 [notice] 82760#70532: signal process started
+2019/11/11 14:43:48 [error] 82760#70532: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:43:50 [warn] 84916#54684: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:43:50 [warn] 84916#54684: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:43:50 [notice] 84916#54684: signal process started
+2019/11/11 14:43:50 [error] 84916#54684: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:43:53 [warn] 63552#95244: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:43:53 [warn] 63552#95244: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:43:53 [notice] 63552#95244: signal process started
+2019/11/11 14:43:53 [error] 63552#95244: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:44:48 [error] 71828#53652: *20 CreateFile() "D:\video-manager\nginx/html/html/hls/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /html/hls/index.html HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:44:56 [error] 71828#53652: *20 CreateFile() "D:/temp/hls/index.html" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls/index.html HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:46:24 [warn] 47808#91220: duplicate extension "m3u8", content type: "application/vna.apple.mpegurl", previous content type: "application/x-mpegURL" in D:\video-manager\nginx/conf/mime.types:5
+2019/11/11 14:46:24 [warn] 47808#91220: duplicate extension "m3u8", content type: "application/vnd.apple.mpegurl", previous content type: "application/vna.apple.mpegurl" in D:\video-manager\nginx/conf/mime.types:42
+2019/11/11 14:46:24 [notice] 47808#91220: signal process started
+2019/11/11 14:46:24 [error] 47808#91220: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:46:59 [notice] 60532#50632: signal process started
+2019/11/11 14:46:59 [error] 60532#50632: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:47:08 [notice] 88464#49360: signal process started
+2019/11/11 14:47:08 [error] 88464#49360: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 14:47:50 [notice] 72768#92572: signal process started
+2019/11/11 14:48:12 [error] 71828#53652: *24 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:48:20 [error] 71828#53652: *24 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:48:41 [error] 71828#53652: *26 CreateFile() "D:\video-manager\nginx/html/user/login" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /user/login?redirect=%2Fpcgsdc HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:48:46 [error] 71828#53652: *26 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:49:01 [error] 71828#53652: *26 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:55:19 [error] 71828#53652: *28 CreateFile() "D:/temp/hls/tester.m3u8" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls/tester.m3u8 HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:56:05 [notice] 52164#53948: signal process started
+2019/11/11 14:56:17 [error] 71828#53652: *28 CreateFile() "D:/temp/hls/tester.m3u8" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls/tester.m3u8 HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:56:22 [error] 71828#53652: *28 CreateFile() "D:/temp/hls/tester.m3u8" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls/tester.m3u8 HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:56:37 [notice] 77520#97668: signal process started
+2019/11/11 14:56:49 [error] 90356#27556: *1 CreateFile() "D:\video-manager\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8084", referrer: "http://localhost:8084/"
+2019/11/11 14:57:06 [error] 71828#53652: *28 CreateFile() "D:/temp/hls" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls HTTP/1.1", host: "localhost:8080"
+2019/11/11 14:58:32 [error] 71828#53652: *30 CreateFile() "D:/temp/hls/tester.m3u8" failed (3: The system cannot find the path specified), client: 127.0.0.1, server: localhost, request: "GET /hls/tester.m3u8 HTTP/1.1", host: "localhost:8080"
+2019/11/11 15:01:47 [notice] 77468#77228: signal process started
+2019/11/11 15:01:52 [notice] 50228#93496: signal process started
+2019/11/11 15:01:52 [error] 50228#93496: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
+2019/11/11 15:19:14 [error] 59516#66616: *1 CreateFile() "D:\video-manager\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8084", referrer: "http://localhost:8084/"
