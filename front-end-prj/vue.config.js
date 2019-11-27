@@ -95,6 +95,15 @@ const vueConfig = {
     // development server port 8000
     port: 8000,
     // If you want to turn on the proxy, please remove the mockjs /src/main.jsL11
+    proxy: {
+      '/api': {
+        // target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
+        target: 'http://localhost:2222/',
+        ws: false,
+        changeOrigin: true
+      }
+    }
+
     // proxy: {
     //   '/api': {
     //     target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
@@ -102,13 +111,13 @@ const vueConfig = {
     //     changeOrigin: true
     //   }
     // }
-    proxy: {
-      '/live/': {
-        target: 'http://live.hkstv.hk.lxdns.com/live/hks/',
-        ws: false,
-        changeOrigin: true
-      }
-    }
+    // proxy: {
+    //   '/live/': {
+    //     target: 'http://live.hkstv.hk.lxdns.com/live/hks/',
+    //     ws: false,
+    //     changeOrigin: true
+    //   }
+    // }
   },
 
   // disable source map in production

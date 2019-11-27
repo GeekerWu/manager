@@ -6,12 +6,13 @@ flask based
 '''
 
 from flask import Flask,request
-import pyhdb
-from ffmpy import FFmpeg
+# import pyhdb
+# from ffmpy import FFmpeg
+import sqlite3
 import json
 from flask_cors import CORS
-from bokeh.core.properties import String
-from celery.utils.serialization import jsonify
+# from bokeh.core.properties import String
+# from celery.utils.serialization import jsonify
 
 global false, null, true
 false = null = true = ""
@@ -32,7 +33,6 @@ def vconvert():
 #     print (data)
     dictobj=json.loads(data)
     print(dictobj['a'])
-    
 #     ff =FFmpeg(
 #     inputs={path: None},
 #     outputs={'tester.m3u8': '-c:v libx264 -c:a aac -strict -2 -f hls -hls_list_size 0 -hls_time 2'}
@@ -40,6 +40,48 @@ def vconvert():
 #     print(ff.cmd)
 #     ff.run()
     return data
+
+@app.route('/getsql3',methods=['GET'])
+def getdata():
+    conn = sqlite3.connect('test.db')
+    create_table_sql = '''CREATE TABLE `test2` (
+                              `id` int(11) NOT NULL,
+                              `name` varchar(20) NOT NULL,
+                              `gender` varchar(4) DEFAULT NULL,
+                              `age` int(11) DEFAULT NULL,
+                              `address` varchar(200) DEFAULT NULL,
+                              `phone` varchar(20) DEFAULT NULL,
+                               PRIMARY KEY (`id`)
+                            )'''
+    # cu = conn.cursor()
+    conn.execute(create_table_sql)
+    print('table create successful')
+    # try:
+    #
+    # except sqlite3.Error as why:
+    #     print( 'create table failed:' + why.args[0])
+    return 'done'
+    #
+    # fetchall_sql = '''SELECT * FROM student'''
+    # try:
+    #     conn = sqlite3.connect('test.db')
+    #     cu = conn.cursor()
+    #     cu.execute(fetchall_sql)
+    #     content = cu.fetchall()
+    #     print(content)
+    #     # if len(content) > 0:
+    #     #     for item in content:
+    #     #         for element in item:
+    #     #             print element,
+    #     #         print ''
+    #     # else:
+    #     #     for element in content:
+    #     #         print element,
+    #     #     print ''
+    #     return content
+    # except sqlite3.Error as why:
+    #     print ( "fetchall data failed:", why.args[0])
+    #     return "fetchall data failed:", why.args[0]
 
 @app.route('/web',methods=['GET','POST'])   
 def webServer():
@@ -57,7 +99,6 @@ def webServer():
         print ("GET REQUEST") 
         resp = 'Get helloworld' 
 #         resp.headers['Access-Control-Allow-Origin'] = '*'
-        
         return resp
     elif request.method =='POST':
         print ("Header info:")
@@ -79,16 +120,13 @@ def webServer():
     
         return resp
         print(resp)
-        
         return resp
     else :
         print ("Else")
-        
-        resp = 'Post helloworld' 
-        
-        
+        resp = 'Post helloworld'
         return resp
-@app.route('/polaris_api/login',methods=['POST'])
+
+@app.route('/api/auth/login',methods=['POST'])
 def vueServer():
     if request.method =='POST':
         print ("Header info:")
@@ -135,7 +173,7 @@ def vueServer():
         
         return resp
 
-@app.route('/polaris_api/2step-code',methods=['POST'])
+@app.route('/api/auth/2step-code',methods=['POST'])
 def twostep_code():
     if request.method =='POST':
         print ("Header info:")
@@ -158,13 +196,13 @@ def twostep_code():
         
     return resp
         
-@app.route('/polaris_api/logout',methods=['POST'])
+@app.route('/api/auth/logout',methods=['POST'])
 def logout(): 
     res={ "stepCode": 1 }
     resp=json.dumps(res)       
     return resp
 
-@app.route('/polaris_api/userinfo',methods=['GET'])
+@app.route('/api/user/info',methods=['GET'])
 def vuerouter():
      if request.method =='GET':
         print ("Header info:")
@@ -184,7 +222,7 @@ def vuerouter():
         res={
              "result":{
                         "id": "4291d7da9005377ec9aec4a71ea837f",
-                        "name": "天野远子",
+                        "name": "哈哈哈",
                         "username": "admin",
                         "password": "",
                         "avatar": "/avatar2.jpg",
