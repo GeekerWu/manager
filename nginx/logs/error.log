@@ -92,3 +92,20 @@ ginx\html/favicon.ico" failed (123: The filename, directory name, or volume labe
 2019/11/11 15:01:52 [notice] 50228#93496: signal process started
 2019/11/11 15:01:52 [error] 50228#93496: CreateFile() "D:\video-manager\nginx/logs/nginx.pid" failed (2: The system cannot find the file specified)
 2019/11/11 15:19:14 [error] 59516#66616: *1 CreateFile() "D:\video-manager\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8084", referrer: "http://localhost:8084/"
+2019/11/28 15:32:50 [emerg] 147428#143288: CreateDirectory() "D:\manager\nginx/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2019/11/28 15:48:29 [notice] 136308#122956: signal process started
+2019/11/28 15:48:29 [error] 136308#122956: OpenEvent("Global\ngx_stop_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:49:00 [notice] 147160#148628: signal process started
+2019/11/28 15:49:00 [error] 147160#148628: OpenEvent("Global\ngx_stop_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:49:10 [notice] 150452#150448: signal process started
+2019/11/28 15:49:10 [error] 150452#150448: OpenEvent("Global\ngx_quit_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:50:05 [emerg] 133864#146020: CreateDirectory() "D:\manager\nginx/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2019/11/28 15:50:23 [notice] 97584#149156: signal process started
+2019/11/28 15:50:23 [error] 97584#149156: OpenEvent("Global\ngx_reload_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:50:41 [notice] 150244#149936: signal process started
+2019/11/28 15:50:41 [error] 150244#149936: OpenEvent("Global\ngx_reload_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:52:38 [notice] 145472#150324: signal process started
+2019/11/28 15:52:38 [error] 145472#150324: OpenEvent("Global\ngx_reload_106716") failed (2: The system cannot find the file specified)
+2019/11/28 15:52:41 [emerg] 149568#134780: CreateDirectory() "D:\manager\nginx/temp/client_body_temp" failed (3: The system cannot find the path specified)
+2019/11/28 15:52:53 [notice] 150812#150816: signal process started
+2019/11/28 15:52:53 [error] 150812#150816: OpenEvent("Global\ngx_stop_106716") failed (2: The system cannot find the file specified)

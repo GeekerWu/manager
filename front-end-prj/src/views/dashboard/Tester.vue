@@ -102,8 +102,8 @@
         //support video js
 //        videoSrc:'http://down.soundaer.com/live/stream_89003_sd/playlist.m3u8?k=d708550fbd49c58a1b8a8412c8623277&t=1553687908',
 //        videoSrc: 'http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8',
-//        videoSrc: 'http://localhost:8084/hls/tester.m3u8',
-        videoSrc: 'http://10.112.24.199:8084/hls/tester.m3u8',
+//        videoSrc: 'http://localhost:8033/hls/tester.m3u8',
+        videoSrc: 'http://10.112.24.199:8086/hls/tester.m3u8',
 //
 
 //        posterSrc:'https://matrimony001.100msh.net.cn/public/code/material/mp-7261-1554175849.jpg',

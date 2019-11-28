@@ -43,18 +43,18 @@ def vconvert():
 
 @app.route('/getsql3',methods=['GET'])
 def getdata():
-    conn = sqlite3.connect('test.db')
-    create_table_sql = '''CREATE TABLE `test2` (
-                              `id` int(11) NOT NULL,
-                              `name` varchar(20) NOT NULL,
-                              `gender` varchar(4) DEFAULT NULL,
-                              `age` int(11) DEFAULT NULL,
-                              `address` varchar(200) DEFAULT NULL,
-                              `phone` varchar(20) DEFAULT NULL,
-                               PRIMARY KEY (`id`)
-                            )'''
+    conn = sqlite3.connect('D:/manager/back-end-prj/test.db')
+    # create_table_sql = '''CREATE TABLE `test2` (
+    #                           `id` int(11) NOT NULL,
+    #                           `name` varchar(20) NOT NULL,
+    #                           `gender` varchar(4) DEFAULT NULL,
+    #                           `age` int(11) DEFAULT NULL,
+    #                           `address` varchar(200) DEFAULT NULL,
+    #                           `phone` varchar(20) DEFAULT NULL,
+    #                            PRIMARY KEY (`id`)
+    #                         )'''
     # cu = conn.cursor()
-    conn.execute(create_table_sql)
+    # conn.execute(create_table_sql)
     print('table create successful')
     # try:
     #

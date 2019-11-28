@@ -27,4 +27,4 @@ node_modules
 # vue.config.js
 
 # temp config
-/nginx/temp/hls/*
+#/nginx/temp/hls/*
