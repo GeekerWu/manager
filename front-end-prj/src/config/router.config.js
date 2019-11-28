@@ -3,13 +3,12 @@ import { UserLayout, BasicLayout, RouteView, BlankLayout, PageView } from '@/lay
 import { bxAnaalyse } from '@/core/icons'
 
 export const asyncRouterMap = [
-
   {
     path: '/',
     name: 'index',
     component: BasicLayout,
     meta: { title: '首页' },
-    redirect: '/dashboard/workplace',
+    redirect: '/dashboard/Tester3',
     children: [
       // dashboard
       {
@@ -18,12 +17,22 @@ export const asyncRouterMap = [
         redirect: '/dashboard/workplace',
         component: RouteView,
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
-        children: [
+        children: [ {
+          path: '/dashboard/Tester3',
+          name: 'Tester3',
+          component: () => import('@/views/dashboard/Tester3'),
+          meta: { title: 'VISER', keepAlive: false, permission: [ 'dashboard' ] }
+        },{
+          path: '/dashboard/Tester2',
+          name: 'Tester2',
+          component: () => import('@/views/dashboard/Tester2'),
+          meta: { title: 'WEBGL', keepAlive: false, permission: [ 'dashboard' ] }
+           },
           {
             path: '/dashboard/Tester',
             name: 'Tester',
             component: () => import('@/views/dashboard/Tester'),
-            meta: { title: 'Tester', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'HLS', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/analysis',

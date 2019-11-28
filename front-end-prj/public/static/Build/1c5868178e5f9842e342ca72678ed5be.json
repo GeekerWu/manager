@@ -1,0 +1,14 @@
+{
+"companyName": "tester",
+"productName": "tester1",
+"dataUrl": "5d789b6fc3f6504b14735c4b54877801.unityweb",
+"asmCodeUrl": "9ce18b5c179510a333b8a38d8173d03e.unityweb",
+"asmMemoryUrl": "52b57e2916dbe5d1002cf983ba313e8c.unityweb",
+"asmFrameworkUrl": "0b678bf28efca2a703292a5717f8eb33.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
