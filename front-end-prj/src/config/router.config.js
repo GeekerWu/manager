@@ -8,26 +8,34 @@ export const asyncRouterMap = [
     name: 'index',
     component: BasicLayout,
     meta: { title: '首页' },
-    redirect: '/dashboard/Tester3',
+    redirect: '/dashboard',
     children: [
       // dashboard
       {
         path: '/dashboard',
         name: 'dashboard',
-        redirect: '/dashboard/workplace',
+        redirect: '/dashboard/Tester4',
         component: RouteView,
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
-        children: [ {
-          path: '/dashboard/Tester3',
-          name: 'Tester3',
-          component: () => import('@/views/dashboard/Tester3'),
-          meta: { title: 'VISER', keepAlive: false, permission: [ 'dashboard' ] }
-        },{
-          path: '/dashboard/Tester2',
-          name: 'Tester2',
-          component: () => import('@/views/dashboard/Tester2'),
-          meta: { title: 'WEBGL', keepAlive: false, permission: [ 'dashboard' ] }
-           },
+        children: [
+          {
+            path: '/dashboard/Tester4',
+            name: 'Tester4',
+            component: () => import('@/views/dashboard/Tester4'),
+            meta: { title: 'Ch', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/dashboard/Tester3',
+            name: 'Tester3',
+            component: () => import('@/views/dashboard/Tester3'),
+            meta: { title: 'VISER', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/dashboard/Tester2',
+            name: 'Tester2',
+            component: () => import('@/views/dashboard/Tester2'),
+            meta: { title: 'WEBGL', keepAlive: false, permission: [ 'dashboard' ] }
+          },
           {
             path: '/dashboard/Tester',
             name: 'Tester',

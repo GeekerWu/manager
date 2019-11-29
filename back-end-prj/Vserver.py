@@ -6,6 +6,8 @@ flask based
 '''
 
 from flask import Flask,request
+from flask_socketio import SocketIO,emit
+
 # import pyhdb
 # from ffmpy import FFmpeg
 import sqlite3
@@ -18,6 +20,7 @@ global false, null, true
 false = null = true = ""
 
 app = Flask(__name__)
+socketio = SocketIO(app,cors_allowed_origins='*')
 CORS(app)
 
 '''
@@ -595,7 +598,49 @@ def vuerouter():
         
     
  
-if __name__ == "__main__":
-    app.run(host='0.0.0.0',port='2222')
-#     app.run(debug=True)
-    
+# if __name__ == "__main__":
+#     app.run(host='0.0.0.0',port='2222')
+# #     app.run(debug=True)
+
+"""
+对socketio进行一些监听设置
+"""
+
+@socketio.on('subscribe',namespace='/test')
+def subscribe(data):
+    print('request_for_client calling from client',data)
+#     socketio.
+#     if task ='':
+    global thread
+    if thread is None:
+#         print('Task is not run init a new task')
+        thread=socketio.start_background_task(schedule_check)
+        print(thread)
+    else:
+        print('thread already run')
+    print('done')
+
+
+
+@socketio.on('connect')
+def connect():
+    print('connect ')
+    print('sent response')
+    emit('response',{'code':'200','msg':'connected'},namespace='/test')
+#     task=socketio.start_background_task(schedule_check())
+#     time.sleep(5)
+#     emit('message',{'code':'200','msg':'hahahha'})
+#     print('sid ',sid)
+#     print('environ ',environ)
+
+@socketio.on('disconnect',namespace='/test')
+def disconnect():
+    print('disconnect ')
+    emit('response',{'code':'200','msg':'disconnect'})
+#     print('sid ',sid)
+#     print('environ ',environ)
+
+
+
+if __name__ == '__main__':
+    socketio.run(app,debug=True,host='0.0.0.0',port=2222)

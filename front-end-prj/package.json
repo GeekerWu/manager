@@ -24,6 +24,7 @@
     "mockjs2": "1.0.7",
     "moment": "^2.24.0",
     "nprogress": "^0.2.0",
+    "socket.io-client": "^2.3.0",
     "video.js": "^7.6.5",
     "videojs-contrib-hls": "^5.15.0",
     "viser-vue": "^2.4.6",
@@ -33,6 +34,7 @@
     "vue-ls": "^3.2.1",
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.1.2",
+    "vue-socket.io": "^3.0.7",
     "vue-svg-component-runtime": "^1.0.1",
     "vuex": "^3.1.1",
     "wangeditor": "^3.1.1"
