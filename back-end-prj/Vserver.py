@@ -611,14 +611,34 @@ def subscribe(data):
     print('request_for_client calling from client',data)
 #     socketio.
 #     if task ='':
-    global thread
-    if thread is None:
+#     global thread
+    # if thread is None:
 #         print('Task is not run init a new task')
-        thread=socketio.start_background_task(schedule_check)
-        print(thread)
-    else:
-        print('thread already run')
+#         thread=socketio.start_background_task(schedule_check)
+#         print(thread)
+#     else:
+        # print('thread already run')
     print('done')
+
+@socketio.on('message', namespace='/test')
+def message(data):
+        print('recived message', data)
+        # print(type(data))
+        # json.dumps(data)
+        # data = json.loads(data)
+        print (data['msg'])
+        #     socketio.
+        #     if task ='':
+        #     global thread
+        # if thread is None:
+        #         print('Task is not run init a new task')
+        #         thread=socketio.start_background_task(schedule_check)
+        #         print(thread)
+        #     else:
+        # print('thread already run')
+        print('done')
+        emit('response', {'code': '200', 'msg':data['msg']}, namespace='/test')
+
 
 
 
@@ -626,7 +646,7 @@ def subscribe(data):
 def connect():
     print('connect ')
     print('sent response')
-    emit('response',{'code':'200','msg':'connected'},namespace='/test')
+    emit('connected',{'code':'200','msg':'connected'},namespace='/test')
 #     task=socketio.start_background_task(schedule_check())
 #     time.sleep(5)
 #     emit('message',{'code':'200','msg':'hahahha'})
@@ -636,7 +656,7 @@ def connect():
 @socketio.on('disconnect',namespace='/test')
 def disconnect():
     print('disconnect ')
-    emit('response',{'code':'200','msg':'disconnect'})
+    emit('disconnect',{'code':'200','msg':'disconnect'})
 #     print('sid ',sid)
 #     print('environ ',environ)
 
