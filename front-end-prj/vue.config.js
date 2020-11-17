@@ -35,6 +35,8 @@ const prodExternals = {
 
 // vue.config.js
 const vueConfig = {
+  //context root config
+  publicPath: '/www',
   configureWebpack: {
     // webpack plugins
     plugins: [
@@ -98,7 +100,8 @@ const vueConfig = {
     proxy: {
       '/api': {
         // target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
-        target: 'http://localhost:2222/',
+        // target: 'http://localhost:2222/',
+        target: 'http://10.112.54.218:2222/',
         ws: false,
         changeOrigin: true
       }
@@ -131,7 +134,7 @@ const vueConfig = {
 if (process.env.VUE_APP_PREVIEW === 'true') {
   console.log('VUE_APP_PREVIEW', true)
   // add `ThemeColorReplacer` plugin to webpack plugins
-  vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+  vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin());
+  // vueConfig.configureWebpack.push({publicPath: '/www'});
 }
-
-module.exports = vueConfig
+module.exports=vueConfig;

@@ -32,7 +32,7 @@ Vue.use(VueAxios)
 // web socket wuqi 20191129
 Vue.use(new VueSocketio({
     debug: false,
-    connection: 'http://10.112.24.199:2222/test',//flask 地址
+    connection: 'http://localhost:2222/test',//flask 地址
     // options: { reconnection: false}
     // options: { reconnection: false,path:'/test',transports: ['websocket', 'polling', 'flashsocket'] }// jango地址+端口，由后端提供
 }))

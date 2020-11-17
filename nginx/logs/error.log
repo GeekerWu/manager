@@ -109,3 +109,4 @@ ginx\html/favicon.ico" failed (123: The filename, directory name, or volume labe
 2019/11/28 15:52:41 [emerg] 149568#134780: CreateDirectory() "D:\manager\nginx/temp/client_body_temp" failed (3: The system cannot find the path specified)
 2019/11/28 15:52:53 [notice] 150812#150816: signal process started
 2019/11/28 15:52:53 [error] 150812#150816: OpenEvent("Global\ngx_stop_106716") failed (2: The system cannot find the file specified)
+2019/12/16 17:17:03 [error] 103076#77496: *3 CreateFile() "D:\manager\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8086", referrer: "http://localhost:8086/"

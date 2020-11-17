@@ -8,6 +8,10 @@
       hahah
     </button>
 
+    <p>
+      {{ this.socketdata}}
+    </p>
+
   </div>
 </template>
 
@@ -15,9 +19,17 @@
 
   export default {
     name: 'tester4',
+
+
+    data() {
+      return {
+        socketdata:'',
+      }
+    },
     mounted(){
       this.sockets.subscribe('response', (data) => {
 //                console.log('server sent refresh data from mounted');
+                this.socketdata=this.socketdata+'\n'+JSON.stringify(data);
                 console.log(data);
             });
     },
