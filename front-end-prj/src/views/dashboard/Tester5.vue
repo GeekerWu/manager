@@ -30,8 +30,7 @@
         <!--<a-input v-model="min" @change="rangechange"></a-input>-->
         <!--<a-slider  range :value="[min,max]" :disabled="disabled" />-->
         <!--<a-input v-model="max" @change="rangechange"></a-input>-->
-        <div   >
-
+        <div>
             <a-row :gutter="48">
               <a-form-item   v-for="i in channellist":label="'channel '+i.channel.toString()+':'">
                 <br/>
@@ -39,40 +38,30 @@
                   <a-col  :md="4" :sm="24">
                     <a-form-item  :label=" 'name'"><a-input v-model="i.channel_name" @change="rangechange"></a-input></a-form-item>
                   </a-col>
-
                   <a-col  :md="6" :sm="24">
-
                     <p>curr val: {{i.currval}}
                       <!--    <a-form-item  :label=" 'curr val: '+i.currval">-->
                       <!--  <a-form-item  :label="i.currval">
                         </a-form-item>-->
                       <a-slider   :min="parseInt(i.min)" :max="parseInt(i.max)" v-model="i.currval" @change="sliderchange" :disabled="disabled" />
-
                     </p>
-
-
                   </a-col>
                   <a-col :md="4" :sm="24">
                     <a-form-item  :label=" 'min:'"><a-input v-model="i.min" @change="rangechange"></a-input> </a-form-item>
-
                   </a-col>
                   <a-col :md="4" :sm="24">
                     <a-form-item  :label=" 'max:'"><a-input  v-model="i.max" @change="rangechange"></a-input></a-form-item>
                     <!--<a-form-item  :label=" 'name'"><a-input v-model="i.channel_name" @change="rangechange"></a-input></a-form-item>-->
                   </a-col>
                 </div>
-
               </a-form-item>
             </a-row>
-
         </div>
-
       </a-form>
     </a-card>
   </div>
 </template>
 <script>
-
   import AInput from "ant-design-vue/es/input/Input";
   import {saveinit,loadinit,deleteinit}from "@/api/poseapi.js"
   export default {
@@ -90,7 +79,6 @@
         posedata:'',
       }
     },
-
     mounted(){
       this.sockets.subscribe('response', (data) => {
 //                console.log('server sent refresh data from mounted');
@@ -112,7 +100,6 @@
       },
       deleteinit(){
 //        console.log(this.inputvalue);
-
         var deletechannel=this.inputvalue
         var regdig = /^[0-9]*$/
         console.log('deletechannel ', deletechannel)
@@ -127,9 +114,6 @@
             console.log(err)
           })
         }
-
-
-
         this.loadinit();
       },
       sliderchange(){
@@ -161,7 +145,6 @@
           console.log(err)
         })
       },
-
       wssent(){
         console.log('message send')
 //        this.$socket.emit('subscribe',{'username':this.username,'table':'Z_UI_ASN_GR'});
