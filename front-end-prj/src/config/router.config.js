@@ -19,8 +19,14 @@ export const asyncRouterMap = [
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
         children: [
           {
+            path: '/dashboard/Tester6',
+            name: 'Tester6',
+            component: () => import('@/views/dashboard/Tester6'),
+            meta: { title: 'PoseNet', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
             path: '/dashboard/Tester5',
-            name: 'Tester4',
+            name: 'Tester5',
             component: () => import('@/views/dashboard/Tester5'),
             meta: { title: 'RB', keepAlive: false, permission: [ 'dashboard' ] }
           },

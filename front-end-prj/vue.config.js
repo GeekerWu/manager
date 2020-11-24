@@ -17,11 +17,21 @@ function isProd () {
 const assetsCDN = {
   css: [],
   // https://unpkg.com/browse/vue@2.6.10/
+/*  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>
+  <!-- ml5 -->
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>*/
+
+
   js: [
     '//cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js',
     '//cdn.jsdelivr.net/npm/vue-router@3.1.3/dist/vue-router.min.js',
     '//cdn.jsdelivr.net/npm/vuex@3.1.1/dist/vuex.min.js',
-    '//cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js'
+    '//cdn.jsdelivr.net/npm/axios@0.19.0/dist/axios.min.js',
+
+    '///cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js',
+    '///cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js',
+    '///unpkg.com/ml5@latest/dist/ml5.min.js',
   ]
 }
 
@@ -30,7 +40,9 @@ const prodExternals = {
   vue: 'Vue',
   'vue-router': 'VueRouter',
   vuex: 'Vuex',
-  axios: 'axios'
+  axios: 'axios',
+  p5:'p5',
+  ml5:'ml5',
 }
 
 // vue.config.js
@@ -101,7 +113,7 @@ const vueConfig = {
       '/api': {
         // target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
         // target: 'http://localhost:2222/',
-        target: 'http://10.112.54.218:2222/',
+        target: 'http://localhost:2222/',
         ws: false,
         changeOrigin: true
       }
