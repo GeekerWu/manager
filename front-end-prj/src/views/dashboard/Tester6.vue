@@ -1,9 +1,9 @@
 <template>
   <div>
-    <a-card>
+    <a-card id="card">
      <!-- <p id='status'>Loading model...</p>-->
       <a>PxxxNxx</a>
-      <canvas id="canvas" width="320" height="240"></canvas>
+      <!--<canvas id="canvas" width="320" height="240"></canvas>-->
       <video id="video" width="320" height="240" autoplay style="display: none"></video>
 
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
@@ -57,16 +57,19 @@
     methods: {
       closed(){
         console.log('closed');
+        var card = document.getElementById("card");
+        card.removeChild(document.getElementById("canvas"))
+
       },
       init(){
         // Grab elements, create settings, etc.
         var video = document.getElementById("video");
-//        var elment=document.createElement("CANVAS")
-//        elment.id = "canvas";
-//        elment.width = 32;
-//        elment.height = 24;
-//        var cardelment=document.getElementById("card");
-//        cardelment.appendChild(elment);
+        var elment=document.createElement("CANVAS")
+        elment.id = "canvas";
+        elment.width = 320;
+        elment.height = 240;
+        var cardelment=document.getElementById("card");
+        cardelment.appendChild(elment);
         var canvas = document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
 
@@ -88,7 +91,7 @@
         // is not detecting a position
         function drawCameraIntoCanvas() {
           // Draw the video element into the canvas
-          ctx.drawImage(video, 0, 0, 100, 80);
+          ctx.drawImage(video, 0, 0, 32, 24);
           // We can call both functions to draw all keypoints and the skeletons
           drawKeypoints();
           drawSkeleton();
