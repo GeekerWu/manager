@@ -22,7 +22,7 @@ export const asyncRouterMap = [
             path: '/dashboard/Tester6',
             name: 'Tester6',
             component: () => import('@/views/dashboard/Tester6'),
-            meta: { title: 'PoseNet', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'P_N', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/Tester5',

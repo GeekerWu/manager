@@ -48,7 +48,7 @@ const prodExternals = {
 // vue.config.js
 const vueConfig = {
   //context root config
-  publicPath: '/www',
+  publicPath: '/abc',
   configureWebpack: {
     // webpack plugins
     plugins: [
