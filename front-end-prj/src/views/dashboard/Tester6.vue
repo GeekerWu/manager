@@ -109,7 +109,7 @@
         // A function that gets called every time there's an update from the model
         function gotPoses(results) {
           poses = results;
-          console.log('ps',poses);
+//          console.log('ps',poses);
         }
 
         function modelReady() {
