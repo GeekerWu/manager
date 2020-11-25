@@ -92,7 +92,7 @@
           // We can call both functions to draw all keypoints and the skeletons
           drawKeypoints();
           drawSkeleton();
-//          window.requestAnimationFrame(drawCameraIntoCanvas());
+          window.requestAnimationFrame(drawCameraIntoCanvas);
 
         }
         // Loop over the drawCameraIntoCanvas function
