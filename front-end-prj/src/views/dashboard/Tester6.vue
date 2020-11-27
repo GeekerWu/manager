@@ -9,8 +9,12 @@
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>-->
 
-      <button @click="init()">
-        init
+      <button @click="hp()">
+        hp
+      </button>
+
+      <button @click="pn()">
+        pn
       </button>
       <button @click="closed()">
         close
@@ -43,6 +47,7 @@
         max:50,
         defaultval:30,
         posedata:'',
+        printpose:0,
       }
     },
     mounted(){
@@ -61,8 +66,61 @@
         card.removeChild(document.getElementById("canvas"))
 
       },
-      init(){
+      hp(){
+        let handpose;
+        let video;
+        let predictions = [];
+
+        function setup() {
+          createCanvas(640, 480);
+          video = createCapture(VIDEO);
+          video.size(width, height);
+
+        
+
+
+
+          handpose = ml5.handpose(video, modelReady);
+
+          // This sets up an event that fills the global variable "predictions"
+          // with an array every time new hand poses are detected
+          handpose.on("predict", results => {
+            predictions = results;
+          });
+
+          // Hide the video element, and just show the canvas
+          video.hide();
+        }
+
+        function modelReady() {
+          console.log("Model ready!");
+        }
+
+        function draw() {
+          image(video, 0, 0, width, height);
+
+          // We can call both functions to draw all keypoints and the skeletons
+          drawKeypoints();
+        }
+
+// A function to draw ellipses over the detected keypoints
+        function drawKeypoints() {
+          for (let i = 0; i < predictions.length; i += 1) {
+            const prediction = predictions[i];
+            for (let j = 0; j < prediction.landmarks.length; j += 1) {
+              const keypoint = prediction.landmarks[j];
+              fill(0, 255, 0);
+              noStroke();
+              ellipse(keypoint[0], keypoint[1], 10, 10);
+            }
+          }
+        }
+      },
+
+
+      pn(){
         // Grab elements, create settings, etc.
+        var that =this
         var video = document.getElementById("video");
         var elment=document.createElement("CANVAS")
         elment.id = "canvas";
@@ -103,17 +161,37 @@
         drawCameraIntoCanvas();
 
         // Create a new poseNet method with a single detection
-        const poseNet = ml5.poseNet(video, modelReady);
+        var option={
+          architecture: 'MobileNetV1',
+          imageScaleFactor: 0.3,
+          outputStride: 32,
+          flipHorizontal: false,
+          minConfidence: 0.5,
+          maxPoseDetections: 5,
+          scoreThreshold: 0.5,
+          nmsRadius: 20,
+          detectionType: 'multiple',
+          inputResolution: 513,
+          multiplier: 0.75,
+          quantBytes: 2,
+        };
+        const poseNet = ml5.poseNet(video, option,modelReady);
         poseNet.on("pose", gotPoses);
 
         // A function that gets called every time there's an update from the model
         function gotPoses(results) {
           poses = results;
-//          console.log('ps',poses);
+//          console.log(that.printpose);
+          that.printpose= parseInt(that.printpose)+1;
+          if (that.printpose<5) {
+            console.log('ps', poses);
+          }
         }
 
         function modelReady() {
-          console.log("model ready");
+
+            console.log("model ready");
+
           poseNet.multiPose(video);
         }
 
