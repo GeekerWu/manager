@@ -43,7 +43,7 @@
                       <!--    <a-form-item  :label=" 'curr val: '+i.currval">-->
                       <!--  <a-form-item  :label="i.currval">
                         </a-form-item>-->
-                      <a-slider   :min="parseInt(i.min)" :max="parseInt(i.max)" v-model="i.currval" @change="sliderchange" :disabled="disabled" />
+                      <a-slider   :min="parseInt(i.min)" :max="parseInt(i.max)" v-model="i.currval" @change="sliderchange(i)" :disabled="disabled" />
                     </p>
                   </a-col>
                   <a-col :md="4" :sm="24">
@@ -82,14 +82,16 @@
     mounted(){
       this.sockets.subscribe('response', (data) => {
 //                console.log('server sent refresh data from mounted');
-                this.socketdata=this.socketdata+'\n'+JSON.stringify(data);
-                console.log(data);
+                this.socketdata=(this.socketdata+'\n'+JSON.stringify(data)).substr(-400,400);
+//                console.log(data);
             });
     },
 
     methods: {
       loadinit(){
         this.channellist=[];
+        this.posedata='';
+        this.socketdata='';
         loadinit().then(res => {
           console.log(res)
           this.channellist=res.res
@@ -116,7 +118,9 @@
         }
         this.loadinit();
       },
-      sliderchange(){
+      sliderchange(i){
+//        console.log('i:',i);
+        this.$socket.emit('message',{'username':this.username,'msg':i});
       },
       rangechange(){
       },

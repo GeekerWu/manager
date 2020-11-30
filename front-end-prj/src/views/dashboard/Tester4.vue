@@ -30,7 +30,7 @@
       this.sockets.subscribe('response', (data) => {
 //                console.log('server sent refresh data from mounted');
                 this.socketdata=this.socketdata+'\n'+JSON.stringify(data);
-                console.log(data);
+//                console.log(data);
             });
     },
 

@@ -5,14 +5,11 @@
       <a>PxxxNxx</a>
       <!--<canvas id="canvas" width="320" height="240"></canvas>-->
       <video id="video" width="320" height="240" autoplay style="display: none"></video>
-
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>-->
-
-      <button @click="hp()">
+     <!-- <button @click="hp()">
         hp
-      </button>
-
+      </button>-->
       <button @click="pn()">
         pn
       </button>
@@ -23,7 +20,6 @@
     <!--<title>Getting Started with ml5.js</title>-->
    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
     <!-- p5 -->
-
   </div>
 </template>
 <script>
@@ -58,15 +54,13 @@
                 console.log(data);
             });
     },
-
     methods: {
       closed(){
         console.log('closed');
         var card = document.getElementById("card");
         card.removeChild(document.getElementById("canvas"))
-
       },
-      hp(){
+     /* hp(){
         let handpose;
         let video;
         let predictions = [];
@@ -75,11 +69,6 @@
           createCanvas(640, 480);
           video = createCapture(VIDEO);
           video.size(width, height);
-
-        
-
-
-
           handpose = ml5.handpose(video, modelReady);
 
           // This sets up an event that fills the global variable "predictions"
@@ -115,7 +104,7 @@
             }
           }
         }
-      },
+      },*/
 
 
       pn(){
@@ -164,7 +153,7 @@
         var option={
           architecture: 'MobileNetV1',
           imageScaleFactor: 0.3,
-          outputStride: 32,
+          outputStride: 16,
           flipHorizontal: false,
           minConfidence: 0.5,
           maxPoseDetections: 5,
@@ -174,7 +163,7 @@
           inputResolution: 513,
           multiplier: 0.75,
           quantBytes: 2,
-        };
+        };;
         const poseNet = ml5.poseNet(video, option,modelReady);
         poseNet.on("pose", gotPoses);
 
