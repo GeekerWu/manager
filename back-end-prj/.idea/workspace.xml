@@ -20,16 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68af181d-8f36-493e-9c8a-dfe9a93d8647" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/back-end-prj.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/back-end-prj.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/05a694c3-1db9-46fb-8f41-a20be041bbbf/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0b1f16f1-3184-466f-9138-5623f75410c1/storage_v2/_src_/schema/main.uQUzAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c5f4e3a1-367e-4226-ba18-d1f7e12db907.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c5f4e3a1-367e-4226-ba18-d1f7e12db907.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mini_server.py" beforeDir="false" afterPath="$PROJECT_DIR$/mini_server.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +93,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.init_pwm">
+  <component name="RunManager" selected="Python.camera">
     <configuration name="back-end-prj" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -116,6 +108,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Vserver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="camera" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="back-end-prj" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/camera.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -195,9 +209,11 @@
       <item itemvalue="Python.mini_server" />
       <item itemvalue="Python.pwm2" />
       <item itemvalue="Python.init_pwm" />
+      <item itemvalue="Python.camera" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.camera" />
         <item itemvalue="Python.init_pwm" />
         <item itemvalue="Python.pwm2" />
         <item itemvalue="Python.mini_server" />
@@ -215,7 +231,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574838662406</updated>
-      <workItem from="1606902245756" duration="4921000" />
+      <workItem from="1606902245756" duration="7620000" />
     </task>
     <servers />
   </component>
@@ -250,26 +266,26 @@
       <screen x="0" y="36" width="1024" height="732" />
     </state>
     <state x="106" y="86" width="802" height="634" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606902244841" />
-    <state width="972" height="178" key="GridCell.Tab.0.bottom" timestamp="1606905751563">
+    <state width="972" height="178" key="GridCell.Tab.0.bottom" timestamp="1606910287022">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.bottom/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606905751563" />
-    <state width="972" height="178" key="GridCell.Tab.0.center" timestamp="1606905751562">
+    <state width="972" height="178" key="GridCell.Tab.0.bottom/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
+    <state width="972" height="178" key="GridCell.Tab.0.center" timestamp="1606910287022">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.center/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606905751562" />
-    <state width="972" height="178" key="GridCell.Tab.0.left" timestamp="1606905751562">
+    <state width="972" height="178" key="GridCell.Tab.0.center/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
+    <state width="972" height="178" key="GridCell.Tab.0.left" timestamp="1606910287021">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.left/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606905751562" />
-    <state width="972" height="178" key="GridCell.Tab.0.right" timestamp="1606905751563">
+    <state width="972" height="178" key="GridCell.Tab.0.left/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287021" />
+    <state width="972" height="178" key="GridCell.Tab.0.right" timestamp="1606910287022">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.right/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606905751563" />
-    <state x="15" y="36" width="992" height="732" key="SettingsEditor" timestamp="1606905010695">
+    <state width="972" height="178" key="GridCell.Tab.0.right/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
+    <state x="15" y="36" width="992" height="732" key="SettingsEditor" timestamp="1606909681055">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state x="15" y="36" width="992" height="732" key="SettingsEditor/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606905010695" />
+    <state x="15" y="36" width="992" height="732" key="SettingsEditor/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606909681055" />
     <state x="413" y="281" width="190" height="404" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1606904421070">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
@@ -281,6 +297,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/back_end_prj$init_pwm.coverage" NAME="init_pwm Coverage Results" MODIFIED="1606905751489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$camera.coverage" NAME="camera Coverage Results" MODIFIED="1606910286943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$mini_server.coverage" NAME="mini_server Coverage Results" MODIFIED="1606904859850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$pwm2.coverage" NAME="pwm2 Coverage Results" MODIFIED="1606905557884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
