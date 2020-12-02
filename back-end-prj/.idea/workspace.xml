@@ -20,8 +20,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="68af181d-8f36-493e-9c8a-dfe9a93d8647" name="默认的" comment="">
-      <change afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/camera.py" beforeDir="false" afterPath="$PROJECT_DIR$/camera.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so" beforeDir="false" afterPath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/cv2/cv2.cpython-37m-arm-linux-gnueabihf.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/LICENSE-3RD-PARTY.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_contrib_python-4.1.1.26.dist-info/top_level.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/INSTALLER" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/LICENSE-3RD-PARTY.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/METADATA" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/RECORD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/REQUESTED" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/WHEEL" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/lib/python3.7/site-packages/opencv_python-4.1.1.26.dist-info/top_level.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +248,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574838662406</updated>
-      <workItem from="1606902245756" duration="7620000" />
+      <workItem from="1606902245756" duration="7714000" />
+      <workItem from="1606911094752" duration="1111000" />
     </task>
     <servers />
   </component>
@@ -266,26 +284,26 @@
       <screen x="0" y="36" width="1024" height="732" />
     </state>
     <state x="106" y="86" width="802" height="634" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606902244841" />
-    <state width="972" height="178" key="GridCell.Tab.0.bottom" timestamp="1606910287022">
+    <state width="972" height="178" key="GridCell.Tab.0.bottom" timestamp="1606911837392">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.bottom/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
-    <state width="972" height="178" key="GridCell.Tab.0.center" timestamp="1606910287022">
+    <state width="972" height="178" key="GridCell.Tab.0.bottom/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606911837392" />
+    <state width="972" height="178" key="GridCell.Tab.0.center" timestamp="1606911837391">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.center/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
-    <state width="972" height="178" key="GridCell.Tab.0.left" timestamp="1606910287021">
+    <state width="972" height="178" key="GridCell.Tab.0.center/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606911837391" />
+    <state width="972" height="178" key="GridCell.Tab.0.left" timestamp="1606911837390">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.left/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287021" />
-    <state width="972" height="178" key="GridCell.Tab.0.right" timestamp="1606910287022">
+    <state width="972" height="178" key="GridCell.Tab.0.left/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606911837390" />
+    <state width="972" height="178" key="GridCell.Tab.0.right" timestamp="1606911837392">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state width="972" height="178" key="GridCell.Tab.0.right/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606910287022" />
-    <state x="15" y="36" width="992" height="732" key="SettingsEditor" timestamp="1606909681055">
+    <state width="972" height="178" key="GridCell.Tab.0.right/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606911837392" />
+    <state x="15" y="36" width="992" height="732" key="SettingsEditor" timestamp="1606911829782">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
-    <state x="15" y="36" width="992" height="732" key="SettingsEditor/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606909681055" />
+    <state x="15" y="36" width="992" height="732" key="SettingsEditor/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606911829782" />
     <state x="413" y="281" width="190" height="404" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1606904421070">
       <screen x="0" y="36" width="1024" height="732" />
     </state>
@@ -297,7 +315,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/back_end_prj$init_pwm.coverage" NAME="init_pwm Coverage Results" MODIFIED="1606905751489" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/back_end_prj$camera.coverage" NAME="camera Coverage Results" MODIFIED="1606910286943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$camera.coverage" NAME="camera Coverage Results" MODIFIED="1606911837275" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$mini_server.coverage" NAME="mini_server Coverage Results" MODIFIED="1606904859850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$pwm2.coverage" NAME="pwm2 Coverage Results" MODIFIED="1606905557884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
