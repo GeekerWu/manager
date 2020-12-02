@@ -52,7 +52,7 @@ def vconvert():
 def getdata():
     coon = pymysql.connect(
     #host='localhost', user='test', passwd='test',
-    host = '10.112.11.22', user = 'test', passwd = 'test',
+    host = 'localhost', user = 'root', passwd = 'root',
     port = 3306, db = 'test', charset = 'utf8'
     # port必须写int类型
     # charset必须写utf8，不能写utf-8

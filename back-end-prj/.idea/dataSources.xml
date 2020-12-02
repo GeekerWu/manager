@@ -20,18 +20,13 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="test@10.112.11.22" uuid="c5f4e3a1-367e-4226-ba18-d1f7e12db907">
+    <data-source source="LOCAL" name="root@localhost" uuid="c5f4e3a1-367e-4226-ba18-d1f7e12db907">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://10.112.11.22:3306/test</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/mysql</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
-        <property name="zeroDateTimeBehavior" value="convertToNull" />
-        <property name="tinyInt1isBit" value="false" />
-        <property name="characterEncoding" value="utf8" />
-        <property name="characterSetResults" value="utf8" />
-        <property name="yearIsDateType" value="false" />
       </driver-properties>
     </data-source>
   </component>
