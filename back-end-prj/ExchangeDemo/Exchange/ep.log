@@ -1,0 +1,18 @@
+DEBUG:O365.message:Entered SET_RECIPIENTS function with type: To
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): outlook.office365.com
+DEBUG:requests.packages.urllib3.connectionpool:https://outlook.office365.com:443 "POST /api/v1.0/me/sendmail HTTP/1.1" 401 0
+DEBUG:O365.message:response from server for sending message:<Response [401]>
+DEBUG:O365.message:respnse body: 
+DEBUG:O365.inbox:creating inbox for the email wuqi2@lenovo.com
+DEBUG:O365.message:Entered SET_RECIPIENTS function with type: To
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): outlook.office365.com
+DEBUG:requests.packages.urllib3.connectionpool:https://outlook.office365.com:443 "POST /api/v1.0/me/sendmail HTTP/1.1" 401 0
+DEBUG:O365.message:response from server for sending message:<Response [401]>
+DEBUG:O365.message:respnse body: 
+DEBUG:O365.inbox:creating inbox for the email wuqi2@lenovo.com
+DEBUG:O365.message:Entered SET_RECIPIENTS function with type: To
+DEBUG:requests.packages.urllib3.connectionpool:Starting new HTTPS connection (1): outlook.office365.com
+DEBUG:requests.packages.urllib3.connectionpool:https://outlook.office365.com:443 "POST /api/v1.0/me/sendmail HTTP/1.1" 401 0
+DEBUG:O365.message:response from server for sending message:<Response [401]>
+DEBUG:O365.message:respnse body: 
+DEBUG:O365.inbox:creating inbox for the email wuqi2@lenovo.com
