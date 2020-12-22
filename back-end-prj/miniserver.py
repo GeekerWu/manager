@@ -10,6 +10,7 @@ import time
 
 pwm = Adafruit_PCA9685.PCA9685(0x40)
 pwm2 = Adafruit_PCA9685.PCA9685(0x41)
+pwm3 = Adafruit_PCA9685.PCA9685(0x42)
 
 
 def set_servo_angle(channel, date):
@@ -17,23 +18,28 @@ def set_servo_angle(channel, date):
     # date=int(4096*((angle*11)+500)/(20000)+0.5)
     date = date * 10
     print(channel, date)
-    if channel <= 5:
-        time.sleep(1)
-        pwm.set_pwm(channel, 0, date)
-    elif channel > 9 and channel <= 15:
 
+    if channel <= 15:
         time.sleep(1)
         pwm.set_pwm(channel, 0, date)
+
     elif channel > 15 and channel <= 31:
         channel = channel - 16
-
         time.sleep(1)
         pwm2.set_pwm(channel, 0, date)
+
+    elif channel > 31 and channel <= 48:
+        channel = channel - 32
+        time.sleep(1)
+        pwm3.set_pwm(channel, 0, date)
+
+
 
 
 import pymysql
 from flask import Flask, request
 from flask_socketio import SocketIO, emit
+
 
 # import pyhdb
 # from ffmpy import FFmpeg
@@ -46,10 +52,124 @@ from flask_cors import CORS
 
 global false, null, true
 false = null = true = ""
-
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins='*')
 CORS(app)
+@app.route('/api/delete_init', methods=['POST'])
+def deleteinit():
+    deletechannel = request.get_data()
+    # dictobj = json.loads(data)
+    deletechannel =int(deletechannel)
+    print('deletechannel:', deletechannel)
+    # delete data:
+    conn = pymysql.connect(
+        host = 'localhost',
+        user = 'root',
+        passwd = 'root',
+        port = 3306,
+        db = 'ml',
+        charset = 'utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "delete from pose_init where channel=%s;"
+    channel = deletechannel
+    # 拼接并执行SQL语句
+    cursor.execute(sql, [channel])
+    # 涉及写操作注意要提交
+    conn.commit()
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    return 'done'
+
+
+@app.route('/api/load_init', methods=['GET'])
+def loadinit():
+    #get data:
+    conn = pymysql.connect(
+        host = 'localhost',
+        user = 'root',
+        passwd = 'root',
+        port = 3306,
+        db = 'ml',
+        charset = 'utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "select * from pose_init;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    res = cursor.fetchall()  # 获取结果
+    print('res', res)
+    data ='';
+    for item in res:
+        #print('item:', item)
+        if data=='':
+            data = data + '[' + json.dumps(
+                {"channel": item[0], "min": item[1], "max": item[2], "currval": item[3], "channel_name": item[4]})
+        else:
+            data=data+','+json.dumps({"channel":item[0],"min":item[1],"max":item[2], "currval":item[3], "channel_name":item[4]})
+        #print('json item:',jsonitem)
+    data=data+']'
+    # print(dictobj['a'])
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    print('data', data)
+    resdata='{\"res\":'+data+'}'
+    print('resdata',resdata)
+    return resdata
+
+@app.route('/api/save_init', methods=['POST'])
+def saveinit():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print ('res data:',dictobj)
+    data=[];
+    for item in dictobj:
+        print('item:',item)
+        # print('item:', item['channel'])
+        data.append((item['channel'] ,item['min'],item['max'],item['currval'],item['channel_name']))
+        # data.append('('+item['channel']+','+item['min']+','+item['max']+','+item['init']+')')
+    # dictobj = json.loads(data)
+    # print(dictobj['a'])
+    print('sql data:',data)
+    #insert data:
+    conn = pymysql.connect(
+        host = 'localhost',
+        user = 'root',
+        passwd = 'root',
+        port = 3306,
+        db = 'ml',
+        charset = 'utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "delete from pose_init;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    conn.commit()
+
+    # 定义要执行的sql语句
+    sql = "insert into pose_init(channel,min,max,init,channel_name) values(%s,%s,%s,%s,%s);"
+    # data = [
+    #     ('july', '147'),
+    #     ('june', '258'),
+    #     ('marin', '369')
+    # ]
+    # 拼接并执行sql语句
+    cursor.executemany(sql, data)
+    # 涉及写操作要注意提交
+    conn.commit()
+    # 关闭连接
+    cursor.close()
+    conn.close()
+
+    return 'hahahha'
 
 '''
 {
@@ -57,7 +177,6 @@ CORS(app)
 "b":"bstr"
 }
 '''
-
 
 @app.route('/vcv', methods=['POST'])
 def vconvert():
@@ -73,13 +192,12 @@ def vconvert():
     #     ff.run()
     return data
 
-
 @app.route('/getsql', methods=['GET'])
 def getdata():
     coon = pymysql.connect(
     #host='localhost', user='test', passwd='test',
     host = 'localhost', user = 'root', passwd = 'root',
-    port = 3306, db = 'test', charset = 'utf8'
+    port = 3306, db = 'mysql', charset = 'utf8'
     # port必须写int类型
     # charset必须写utf8，不能写utf-8
     )
@@ -92,8 +210,6 @@ def getdata():
         resstr= resstr+item[0]
     cur.close()  # 关闭游标
     coon.close()  # 关闭连接
-
-
 
     # conn = sqlite3.connect('D:/manager/back-end-prj/test.db')
     # create_table_sql = '''
@@ -138,7 +254,6 @@ def getdata():
     #     print ( "fetchall data failed:", why.args[0])
     #     return "fetchall data failed:", why.args[0]
 
-
 @app.route('/web', methods=['GET', 'POST'])
 def webServer():
     print(request.method)
@@ -173,7 +288,6 @@ def webServer():
         #         setHeader("Access-Control-Allow-Origin", "*")
         # resp=json.dumps(Result)
         resp = Result
-
         return resp
         print(resp)
         return resp
@@ -181,7 +295,6 @@ def webServer():
         print("Else")
         resp = 'Post helloworld'
         return resp
-
 
 @app.route('/api/auth/login', methods=['POST'])
 def vueServer():
@@ -219,16 +332,12 @@ def vueServer():
                 "token": "4291d7da9005377ec9aec4a71ea837f"
             }
         }
-
         #         res=json.loads(res)
         resp = json.dumps(res)
         #         resp=Result
-
         # return resp
         #         print(resp)
-
         return resp
-
 
 @app.route('/api/auth/2step-code', methods=['POST'])
 def twostep_code():
@@ -247,10 +356,8 @@ def twostep_code():
     resp = json.dumps(res)
     #         resp=jsonify(res)
     #         resp=Result
-
     # return resp
     #     print(resp)
-
     return resp
 
 
@@ -259,7 +366,6 @@ def logout():
     res = {"stepCode": 1}
     resp = json.dumps(res)
     return resp
-
 
 @app.route('/api/user/info', methods=['GET'])
 def vuerouter():
@@ -642,12 +748,9 @@ def vuerouter():
         resp = json.dumps(res)
         #         resp=jsonify(res)
         #         resp=Result
-
         # return resp
         #     print(resp)
-
         return resp
-
 
 # if __name__ == "__main__":
 #     app.run(host='0.0.0.0',port='2222')
@@ -656,7 +759,6 @@ def vuerouter():
 """
 对socketio进行一些监听设置
 """
-
 
 @socketio.on('subscribe', namespace='/test')
 def subscribe(data):
@@ -672,16 +774,16 @@ def subscribe(data):
     # print('thread already run')
     print('done')
 
-
 @socketio.on('message', namespace='/test')
 def message(data):
     print('recived message', data)
     # print(type(data))
     # json.dumps(data)
     # data = json.loads(data)
+
     print(data['msg'])
-    if(data['username']=='pose'):
-        channel=22
+    if (data['username'] == 'pose'):
+        channel = 22
         set_servo_angle(channel, data['msg'])
 
     #     socketio.
@@ -695,14 +797,47 @@ def message(data):
     # print('thread already run')
     print('done')
     emit('response', {'code': '200', 'msg': data['msg']}, namespace='/test')
+    print(data['msg'])
 
+    # coon = pymysql.connect(
+    #     # host='localhost', user='test', passwd='test',
+    #     host='localhost', user='root', passwd='root',
+    #     port=3306, db='ml', charset='utf8'
+    #     # port必须写int类型
+    #     # charset必须写utf8，不能写utf-8
+    # )
+    # cur = coon.cursor()  # 建立游标
+    # cur.execute("select * from usr_info")  # 查询数据
+    # res = cur.fetchall()  # 获取结果
+    # resstr = ''
+    # itemstr=""
+    # i=0
+    # for item in res:
+    #     print(item)
+    #     itemstr="".join([str(x)for x in item])
+    #     resstr = resstr+str(i)+':'+ str(itemstr)+','
+    #     i=i+1
+    # cur.close()  # 关闭游标
+    # coon.close()  # 关闭连接
+    #
+    # #     socketio.
+    # #     if task ='':
+    # #     global thread
+    # # if thread is None:
+    # #         print('Task is not run init a new task')
+    # #         thread=socketio.start_background_task(schedule_check)
+    # #         print(thread)
+    # #     else:
+    # # print('thread already run')
+    # print(resstr)
+    # print('done')
+    # emit('response', {'code': '200', 'msg': data['msg']}, namespace='/test')
 
 @socketio.on('connect')
 def connect():
     print('connect ')
     print('sent response')
     emit('connected', {'code': '200', 'msg': 'connected'}, namespace='/test')
-
 
 #     task=socketio.start_background_task(schedule_check())
 #     time.sleep(5)
@@ -715,10 +850,8 @@ def disconnect():
     print('disconnect ')
     emit('disconnect', {'code': '200', 'msg': 'disconnect'})
 
-
 #     print('sid ',sid)
 #     print('environ ',environ)
 
-
 if __name__ == '__main__':
-    socketio.run(app, debug=True, host='0.0.0.0', port=2222)
+    socketio.run(app, debug=false, host='0.0.0.0', port=2222)
