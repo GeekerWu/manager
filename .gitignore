@@ -28,3 +28,6 @@ node_modules
 
 # temp config
 #/nginx/temp/hls/*
+
+# python env
+/back-end-prj/venv/*

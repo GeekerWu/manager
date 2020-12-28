@@ -4,7 +4,7 @@
      <!-- <p id='status'>Loading model...</p>-->
       <a>PxxxNxx</a>
       <!--<canvas id="canvas" width="320" height="240"></canvas>-->
-      <video id="video" width="320" height="240" autoplay style="display: none"></video>
+      <video id="video" width="640" height="480" autoplay style="display: none"></video>
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>-->
      <!-- <button @click="hp()">
@@ -113,8 +113,8 @@
         var video = document.getElementById("video");
         var elment=document.createElement("CANVAS")
         elment.id = "canvas";
-        elment.width = 320;
-        elment.height = 240;
+        elment.width = 640;
+        elment.height = 480;
         var cardelment=document.getElementById("card");
         cardelment.appendChild(elment);
         var canvas = document.getElementById("canvas");
@@ -138,7 +138,7 @@
         // is not detecting a position
         function drawCameraIntoCanvas() {
           // Draw the video element into the canvas
-          ctx.drawImage(video, 0, 0, 32, 24);
+          ctx.drawImage(video, 0, 0, 640, 480);
           // We can call both functions to draw all keypoints and the skeletons
           drawKeypoints();
           drawSkeleton();
@@ -156,7 +156,7 @@
           outputStride: 16,
           flipHorizontal: false,
           minConfidence: 0.5,
-          maxPoseDetections: 5,
+          maxPoseDetections: 1,
           scoreThreshold: 0.5,
           nmsRadius: 20,
           detectionType: 'multiple',
@@ -195,6 +195,8 @@
               if (keypoint.score > 0.2) {
                 ctx.beginPath();
                 ctx.arc(keypoint.position.x, keypoint.position.y, 10, 0, 2 * Math.PI);
+                ctx.strokeStyle ="red";
+                ctx.lineWidth =3;
                 ctx.stroke();
               }
             }
@@ -212,6 +214,8 @@
               ctx.beginPath();
               ctx.moveTo(partA.position.x, partA.position.y);
               ctx.lineTo(partB.position.x, partB.position.y);
+              ctx.strokeStyle ="yellow";
+              ctx.lineWidth =3;
               ctx.stroke();
             }
           }

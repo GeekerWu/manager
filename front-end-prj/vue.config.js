@@ -113,7 +113,7 @@ const vueConfig = {
       '/api': {
         // target: 'https://mock.ihx.me/mock/5baf3052f7da7e07e04a5116/antd-pro',
         // target: 'http://localhost:2222/',
-        target: 'http://localhost:2222/',
+        target: 'http://10.0.0.9:2222/',
         ws: false,
         changeOrigin: true
       }
