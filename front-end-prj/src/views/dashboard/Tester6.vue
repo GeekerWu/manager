@@ -183,7 +183,7 @@
 
           poseNet.multiPose(video);
         }
-
+        var angle=50
         // A function to draw ellipses over the detected keypoints
         function drawKeypoints() {
           // Loop through all the poses detected
@@ -198,6 +198,25 @@
                 ctx.strokeStyle ="red";
                 ctx.lineWidth =3;
                 ctx.stroke();
+
+                if(keypoint.part=='nose'){
+                  console.log('nose',keypoint.position.x);
+                  if (keypoint.position.x<400){
+                    if (angle!=70){
+
+                      that.wssentpose(70);
+                      angle=70
+                    }
+
+                  }else if (keypoint.position.x>400){
+                    if (angle!=120){
+                      that.wssentpose(120);
+                      angle=120
+                    }
+
+                  }
+                }
+
               }
             }
           }
@@ -222,6 +241,20 @@
         }
 
 
+      },
+      wssentpose(pose){
+        console.log('message send')
+//        this.$socket.emit('subscribe',{'username':this.username,'table':'Z_UI_ASN_GR'});
+        this.$socket.emit('message',{'username':'pose','msg':pose});
+//                    this.$socket.emit('test',{'username':this.username,'table':'Z_UI_ASN_GR'});
+//                    this.sockets.subscribe('response', (data) => {
+//                        console.log('server sent response from onSwitchChange function');
+//                        console.log(data,'if data change,can call refresh function locally');
+//                    });
+//                    this.sockets.subscribe('refreshdata', (data) => {
+//                        console.log(data,'if data change,can call refresh function locally');
+//                        this.renderChart(data)
+//                    });
       },
 
       wssent(){
