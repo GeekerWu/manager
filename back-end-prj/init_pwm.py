@@ -19,6 +19,7 @@ def set_servo_angle(channel, date):
         channel=channel-16
         
         time.sleep(1)
+
         pwm2.set_pwm(channel, 0, date)
 
     elif channel > 31 and channel <= 48:
