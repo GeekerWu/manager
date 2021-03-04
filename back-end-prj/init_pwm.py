@@ -2,6 +2,7 @@ import Adafruit_PCA9685
 import time
 pwm = Adafruit_PCA9685.PCA9685(0x40)
 pwm2 = Adafruit_PCA9685.PCA9685(0x41)
+pwm3 = Adafruit_PCA9685.PCA9685(0x42)
 def set_servo_angle(channel, date):
     #date=4096*((angle*11)+500)/20000
     #date=int(4096*((angle*11)+500)/(20000)+0.5)
@@ -18,8 +19,15 @@ def set_servo_angle(channel, date):
         channel=channel-16
         
         time.sleep(1)
+
         pwm2.set_pwm(channel, 0, date)
-    
+
+    elif channel > 31 and channel <= 48:
+        channel = channel - 32
+
+        time.sleep(1)
+        pwm3.set_pwm(channel, 0, date)
+
     #pwm.set_pwm(channel, 0, date)
 print('Moving servo on channel x, press Ctrl-C to quit...')  
 while True:  

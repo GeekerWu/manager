@@ -5,6 +5,37 @@ flask based
 @author: wuqi2
 '''
 
+#import Adafruit_PCA9685
+import time
+
+# pwm = Adafruit_PCA9685.PCA9685(0x40)
+# pwm2 = Adafruit_PCA9685.PCA9685(0x41)
+# pwm3 = Adafruit_PCA9685.PCA9685(0x42)
+
+
+# def set_servo_angle(channel, date):
+#     # date=4096*((angle*11)+500)/20000
+#     # date=int(4096*((angle*11)+500)/(20000)+0.5)
+#     date = date * 10
+#     print(channel, date)
+#
+#     if channel <= 15:
+#         time.sleep(1)
+#         pwm.set_pwm(channel, 0, date)
+#
+#     elif channel > 15 and channel <= 31:
+#         channel = channel - 16
+#         #time.sleep(1)
+#         pwm2.set_pwm(channel, 0, date)
+#
+#     elif channel > 31 and channel <= 48:
+#         channel = channel - 32
+#         #time.sleep(1)
+#         pwm3.set_pwm(channel, 0, date)
+
+
+
+
 import pymysql
 from flask import Flask, request
 from flask_socketio import SocketIO, emit
@@ -146,6 +177,22 @@ def saveinit():
 "b":"bstr"
 }
 '''
+
+
+@app.route('/api/pose_set', methods=['POST'])
+def poseset():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('res data:', dictobj)
+    data = [];
+    for item in dictobj:
+        print('item:', item)
+        # print('item:', item['channel'])
+        print(item['channel'], item['currval'])
+        time.sleep(1)
+       # set_servo_angle(int(item['channel']), int(item['currval']))
+    return 'hahahha'
+
 
 @app.route('/vcv', methods=['POST'])
 def vconvert():
@@ -749,28 +796,15 @@ def message(data):
     # print(type(data))
     # json.dumps(data)
     # data = json.loads(data)
-    print(data['msg'])
 
-    coon = pymysql.connect(
-        # host='localhost', user='test', passwd='test',
-        host='localhost', user='root', passwd='root',
-        port=3306, db='ml', charset='utf8'
-        # port必须写int类型
-        # charset必须写utf8，不能写utf-8
-    )
-    cur = coon.cursor()  # 建立游标
-    cur.execute("select * from usr_info")  # 查询数据
-    res = cur.fetchall()  # 获取结果
-    resstr = ''
-    itemstr=""
-    i=0
-    for item in res:
-        print(item)
-        itemstr="".join([str(x)for x in item])
-        resstr = resstr+str(i)+':'+ str(itemstr)+','
-        i=i+1
-    cur.close()  # 关闭游标
-    coon.close()  # 关闭连接
+    print(data['msg'])
+    if(data['msg']['channel']):
+        print(data['msg']['channel'],data['msg']['currval'])
+       # set_servo_angle(int(data['msg']['channel']),int(data['msg']['currval']))
+    if (data['username']):
+        if (data['username'] == 'pose'):
+            channel = 22
+        #    set_servo_angle(channel, data['msg'])
 
     #     socketio.
     #     if task ='':
@@ -781,9 +815,43 @@ def message(data):
     #         print(thread)
     #     else:
     # print('thread already run')
-    print(resstr)
     print('done')
     emit('response', {'code': '200', 'msg': data['msg']}, namespace='/test')
+    print(data['msg'])
+
+    # coon = pymysql.connect(
+    #     # host='localhost', user='test', passwd='test',
+    #     host='localhost', user='root', passwd='root',
+    #     port=3306, db='ml', charset='utf8'
+    #     # port必须写int类型
+    #     # charset必须写utf8，不能写utf-8
+    # )
+    # cur = coon.cursor()  # 建立游标
+    # cur.execute("select * from usr_info")  # 查询数据
+    # res = cur.fetchall()  # 获取结果
+    # resstr = ''
+    # itemstr=""
+    # i=0
+    # for item in res:
+    #     print(item)
+    #     itemstr="".join([str(x)for x in item])
+    #     resstr = resstr+str(i)+':'+ str(itemstr)+','
+    #     i=i+1
+    # cur.close()  # 关闭游标
+    # coon.close()  # 关闭连接
+    #
+    # #     socketio.
+    # #     if task ='':
+    # #     global thread
+    # # if thread is None:
+    # #         print('Task is not run init a new task')
+    # #         thread=socketio.start_background_task(schedule_check)
+    # #         print(thread)
+    # #     else:
+    # # print('thread already run')
+    # print(resstr)
+    # print('done')
+    # emit('response', {'code': '200', 'msg': data['msg']}, namespace='/test')
 
 @socketio.on('connect')
 def connect():

@@ -31,3 +31,4 @@ node_modules
 
 # python env
 /back-end-prj/venv/*
+/back-end-prj/.idea/*

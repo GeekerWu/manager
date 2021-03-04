@@ -5,6 +5,32 @@ flask based
 @author: wuqi2
 '''
 
+# import Adafruit_PCA9685
+# import time
+#
+# pwm = Adafruit_PCA9685.PCA9685(0x40)
+# pwm2 = Adafruit_PCA9685.PCA9685(0x41)
+#
+#
+# def set_servo_angle(channel, date):
+#     # date=4096*((angle*11)+500)/20000
+#     # date=int(4096*((angle*11)+500)/(20000)+0.5)
+#     date = date * 10
+#     print(channel, date)
+#     if channel <= 5:
+#         time.sleep(1)
+#         pwm.set_pwm(channel, 0, date)
+#     elif channel > 9 and channel <= 15:
+#
+#         time.sleep(1)
+#         pwm.set_pwm(channel, 0, date)
+#     elif channel > 15 and channel <= 31:
+#         channel = channel - 16
+#
+#         time.sleep(1)
+#         pwm2.set_pwm(channel, 0, date)
+
+
 import pymysql
 from flask import Flask, request
 from flask_socketio import SocketIO, emit
@@ -654,6 +680,10 @@ def message(data):
     # json.dumps(data)
     # data = json.loads(data)
     print(data['msg'])
+    if(data['username']=='pose'):
+        channel=22
+        set_servo_angle(channel, data['msg'])
+
     #     socketio.
     #     if task ='':
     #     global thread

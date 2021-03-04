@@ -24,6 +24,9 @@
         <button @click="wssent()">
           ws send
         </button>
+        <button @click="poseset()">
+          pose set
+        </button>
         <p>
           {{ this.socketdata}}
         </p>
@@ -63,7 +66,7 @@
 </template>
 <script>
   import AInput from "ant-design-vue/es/input/Input";
-  import {saveinit,loadinit,deleteinit}from "@/api/poseapi.js"
+  import {poseset,saveinit,loadinit,deleteinit}from "@/api/poseapi.js"
   export default {
     components: {AInput},
     name: 'tester5',
@@ -73,9 +76,9 @@
         socketdata:'',
         inputvalue:'',
         channellist:[],
-        min:20,
-        max:50,
-        defaultval:30,
+        min:70,
+        max:170,
+        defaultval:120,
         posedata:'',
       }
     },
@@ -119,7 +122,7 @@
         this.loadinit();
       },
       sliderchange(i){
-//        console.log('i:',i);
+       console.log('i:',i);
         this.$socket.emit('message',{'username':this.username,'msg':i});
       },
       rangechange(){
@@ -149,6 +152,18 @@
           console.log(err)
         })
       },
+
+      poseset(){
+        console.log('pose send');
+        this.posedata=JSON.stringify(this.channellist);
+        poseset(this.channellist).then(res => {
+          console.log(res)
+          return res
+        }).catch(err => {
+          console.log(err)
+        })
+      },
+
       wssent(){
         console.log('message send')
 //        this.$socket.emit('subscribe',{'username':this.username,'table':'Z_UI_ASN_GR'});
