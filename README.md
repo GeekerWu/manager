@@ -1,5 +1,32 @@
 # manager
-manager
+Agenda:
+main provide robot releate feature,and other test case maybe used in feature.
+hardware:Servo PWM and Voltage feed back Feature,PCA9685,Ardiuno,Raspberry Pi,webcamera microphone,speaker,
+
+
+Ardiuno folder：
+colect Analog pin read Voltage，convert to servo angle，using serial package I2C port pass to Raspberry Pi.
+
+back-end-prj folder:
+miniserverraspberry.py is main pyserver script.provied UI api ,Database DDL,Ardinuo data reader,socket,servo control service
+other py file is different feature test case.
+
+front-end-prj folder:
+UI project,contain webgl case,posenet(ml5.js) case,voice management,animation management,table show,video stream,chart...and others case.
+
+
+nginx folder:
+frontend proxy
+
+tf-prj foilder:
+tensorflow test environment
+
+wumi folder:
+wumi UI test case
+
+
+ffmpeg-win64-static folder:
+main feature is generate m3u8 file to support video stream service.
 
 example
 ffmpeg -i D:\video-manager\nginx\temp\tester.mp4 -c:v libx264 -c:a copy -f hls D:\video-manager\nginx\temp\hls\tester.m3u8
