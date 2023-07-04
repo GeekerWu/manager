@@ -18,12 +18,44 @@ const api = {
   loadinit:'/load_init',
   deleteinit:'/delete_init',
   poseset:'/pose_set',
-
+  saveanima:'/save_anima',
+  updateanima:'/update_anima',
+  playanima:'/play_anima',
+  deleteanima:'/delete_anima'
 }
 export function loadinit () {
   return axios({
     url: api.loadinit,
     method: 'get',
+  })
+}
+export function playanima (parameter) {
+  return axios({
+    url: api.playanima,
+    method: 'post',
+    data: parameter
+  })
+}
+
+export function updateanima (parameter) {
+  return axios({
+    url: api.updateanima,
+    method: 'post',
+    data: parameter
+  })
+}
+export function saveanima (parameter) {
+  return axios({
+    url: api.saveanima,
+    method: 'post',
+    data: parameter
+  })
+}
+export function deleteanima (parameter) {
+  return axios({
+    url: api.deleteanima,
+    method: 'post',
+    data: parameter
   })
 }
 

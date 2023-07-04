@@ -2,9 +2,11 @@
   <div>
     <a-card id="card">
      <!-- <p id='status'>Loading model...</p>-->
-      <a>PxxxNxx</a>
+      <a>PoseNet</a>
+      <br/>
       <!--<canvas id="canvas" width="320" height="240"></canvas>-->
       <video id="video" width="640" height="480" autoplay style="display: none"></video>
+<!--      <video id="video" width="640" height="480" autoplay style="display: none"></video>-->
       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/addons/p5.sound.min.js"></script>-->
      <!-- <button @click="hp()">
@@ -124,7 +126,6 @@
         let poses = [];
 
 
-
         // Create a webcam capture
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream) {
@@ -170,7 +171,7 @@
         // A function that gets called every time there's an update from the model
         function gotPoses(results) {
           poses = results;
-//          console.log(that.printpose);
+         console.log(that.printpose);
           that.printpose= parseInt(that.printpose)+1;
           if (that.printpose<5) {
             console.log('ps', poses);

@@ -20,7 +20,7 @@ import time
 #     print(channel, date)
 #
 #     if channel <= 15:
-#         time.sleep(1)
+#
 #         pwm.set_pwm(channel, 0, date)
 #
 #     elif channel > 15 and channel <= 31:

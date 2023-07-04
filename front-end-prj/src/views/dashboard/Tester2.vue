@@ -47,7 +47,7 @@
 //            this.iframe.setAttribute("src", "https://www.baidu.com");
       this.iframe.setAttribute("style", "display:block;");
       this.iframe.setAttribute("frameborder", "0");
-      this.iframe.style.height="100%";
+      this.iframe.style.height="500px";
       this.iframe.style.width="100%";
       this.iframe.style.border = 'none';
     },

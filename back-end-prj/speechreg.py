@@ -68,6 +68,7 @@ except IOError:
 #convert new audio file
 #import ffmpeg
 ffmpeg.input('microphone-results.wav').output('microphone-results16000.wav', ar=16000).run()
+#ffmpeg.input('microphone-results.wav').output('microphone-results16000.mp3', ar=16000).run()
 
 #print audio info
 #import wave

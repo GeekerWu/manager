@@ -104,7 +104,7 @@
 //        videoSrc: 'http://live.hkstv.hk.lxdns.com/live/hks/playlist.m3u8',
 //        videoSrc: 'http://localhost:8033/hls/tester.m3u8',
 //        videoSrc: 'http://10.112.24.199:8086/hls/tester.m3u8',
-        videoSrc: 'http://10.112.11.22:8080/hls/tester.m3u8',
+        videoSrc: 'http://10.0.0.88:8086/hls/tester.m3u8',
 //
 
 //        posterSrc:'https://matrimony001.100msh.net.cn/public/code/material/mp-7261-1554175849.jpg',

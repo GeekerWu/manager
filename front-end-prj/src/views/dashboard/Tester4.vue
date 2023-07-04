@@ -30,15 +30,15 @@
       this.sockets.subscribe('response', (data) => {
 //                console.log('server sent refresh data from mounted');
                 this.socketdata=this.socketdata+'\n'+JSON.stringify(data);
-//                console.log(data);
+                /*console.log(this.socketdata);*/
             });
     },
 
     methods: {
       sent(){
-        console.log('message send')
+        console.log('message send',{'username':this.username,'msg':'hahahahahha'})
 //        this.$socket.emit('subscribe',{'username':this.username,'table':'Z_UI_ASN_GR'});
-
+        this.socketdata=this.socketdata+'\n'+'hahahahahha';
         this.$socket.emit('message',{'username':this.username,'msg':'hahahahahha'});
 //                    this.$socket.emit('test',{'username':this.username,'table':'Z_UI_ASN_GR'});
 //                    this.sockets.subscribe('response', (data) => {

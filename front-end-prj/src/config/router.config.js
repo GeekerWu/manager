@@ -19,40 +19,64 @@ export const asyncRouterMap = [
         meta: { title: '仪表盘', keepAlive: true, icon: bxAnaalyse, permission: [ 'dashboard' ] },
         children: [
           {
+            path: '/dashboard/Tester10',
+            name: 'Tester10',
+            component: () => import('@/views/dashboard/Tester10'),
+            meta: { title: 'VoiceAnimaMapping(tester10)', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/dashboard/Tester9',
+            name: 'Tester9',
+            component: () => import('@/views/dashboard/Tester9'),
+            meta: { title: 'VoiceAsset(tester9)', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/dashboard/Tester8',
+            name: 'Tester8',
+            component: () => import('@/views/dashboard/Tester8'),
+            meta: { title: 'AnimeView(tester8)', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
+            path: '/dashboard/Tester7',
+            name: 'Tester7',
+            component: () => import('@/views/dashboard/Tester7'),
+            meta: { title: 'TabelView(tester7)', keepAlive: false, permission: [ 'dashboard' ] }
+          },
+          {
             path: '/dashboard/Tester6',
             name: 'Tester6',
             component: () => import('@/views/dashboard/Tester6'),
-            meta: { title: 'P_N', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'PoseNet(tester6)', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/Tester5',
             name: 'Tester5',
             component: () => import('@/views/dashboard/Tester5'),
-            meta: { title: 'RB', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'RobotControl(tester5)', keepAlive: false, permission: [ 'dashboard' ] }
           },
-          {
+         {
             path: '/dashboard/Tester4',
             name: 'Tester4',
             component: () => import('@/views/dashboard/Tester4'),
-            meta: { title: 'Ch', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'ChatSocket(tester4)', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/Tester3',
             name: 'Tester3',
             component: () => import('@/views/dashboard/Tester3'),
-            meta: { title: 'VISER', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'Chart-Viser(tester3)', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/Tester2',
             name: 'Tester2',
             component: () => import('@/views/dashboard/Tester2'),
-            meta: { title: 'WEBGL', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'Unity3D(tester2)', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/Tester',
             name: 'Tester',
             component: () => import('@/views/dashboard/Tester'),
-            meta: { title: 'HLS', keepAlive: false, permission: [ 'dashboard' ] }
+            meta: { title: 'Video(tester)', keepAlive: false, permission: [ 'dashboard' ] }
           },
           {
             path: '/dashboard/analysis',
@@ -64,7 +88,7 @@ export const asyncRouterMap = [
           {
             path: 'https://www.baidu.com/',
             name: 'Monitor',
-            meta: { title: '监控页（外部）', target: '_blank' }
+            meta: { title: '监控页（外部jump baidu）', target: '_blank' }
           },
           {
             path: '/dashboard/workplace',
@@ -72,17 +96,17 @@ export const asyncRouterMap = [
             component: () => import('@/views/dashboard/Workplace'),
             meta: { title: '工作台', keepAlive: true, permission: [ 'dashboard' ] }
           },
-          {
+         /* {
             path: '/dashboard/test-work',
             name: 'TestWork',
             component: () => import('@/views/dashboard/TestWork'),
             meta: { title: '测试功能', keepAlive: true, permission: [ 'dashboard' ] }
-          }
+          }*/
         ]
       },
 
       // forms
-      {
+     /* {
         path: '/form',
         redirect: '/form/base-form',
         component: PageView,
@@ -107,10 +131,10 @@ export const asyncRouterMap = [
             meta: { title: '高级表单', keepAlive: true, permission: [ 'form' ] }
           }
         ]
-      },
+      },*/
 
       // list
-      {
+     /* {
         path: '/list',
         name: 'list',
         component: PageView,
@@ -164,10 +188,10 @@ export const asyncRouterMap = [
             ]
           }
         ]
-      },
+      },*/
 
       // profile
-      {
+     /* {
         path: '/profile',
         name: 'profile',
         component: RouteView,
@@ -187,10 +211,10 @@ export const asyncRouterMap = [
             meta: { title: '高级详情页', permission: [ 'profile' ] }
           }
         ]
-      },
+      },*/
 
       // result
-      {
+    /*  {
         path: '/result',
         name: 'result',
         component: PageView,
@@ -200,20 +224,20 @@ export const asyncRouterMap = [
           {
             path: '/result/success',
             name: 'ResultSuccess',
-            component: () => import(/* webpackChunkName: "result" */ '@/views/result/Success'),
+            component: () => import(/!* webpackChunkName: "result" *!/ '@/views/result/Success'),
             meta: { title: '成功', keepAlive: false, hiddenHeaderContent: true, permission: [ 'result' ] }
           },
           {
             path: '/result/fail',
             name: 'ResultFail',
-            component: () => import(/* webpackChunkName: "result" */ '@/views/result/Error'),
+            component: () => import(/!* webpackChunkName: "result" *!/ '@/views/result/Error'),
             meta: { title: '失败', keepAlive: false, hiddenHeaderContent: true, permission: [ 'result' ] }
           }
         ]
-      },
+      },*/
 
       // Exception
-      {
+     /* {
         path: '/exception',
         name: 'exception',
         component: RouteView,
@@ -223,23 +247,23 @@ export const asyncRouterMap = [
           {
             path: '/exception/403',
             name: 'Exception403',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/403'),
+            component: () => import(/!* webpackChunkName: "fail" *!/ '@/views/exception/403'),
             meta: { title: '403', permission: [ 'exception' ] }
           },
           {
             path: '/exception/404',
             name: 'Exception404',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/404'),
+            component: () => import(/!* webpackChunkName: "fail" *!/ '@/views/exception/404'),
             meta: { title: '404', permission: [ 'exception' ] }
           },
           {
             path: '/exception/500',
             name: 'Exception500',
-            component: () => import(/* webpackChunkName: "fail" */ '@/views/exception/500'),
+            component: () => import(/!* webpackChunkName: "fail" *!/ '@/views/exception/500'),
             meta: { title: '500', permission: [ 'exception' ] }
           }
         ]
-      },
+      },*/
 
       // account
       {
@@ -299,7 +323,7 @@ export const asyncRouterMap = [
       },
 
       // other
-      {
+   /*   {
         path: '/other',
         name: 'otherPage',
         component: PageView,
@@ -357,11 +381,12 @@ export const asyncRouterMap = [
             ]
           }
         ]
-      }
+      }*/
     ]
   },
   {
-    path: '*', redirect: '/404', hidden: true
+    /*path: '*', redirect: '/404', hidden: true*/
+    path: '*', redirect: '/user/login',
   }
 ]
 
