@@ -1,3 +1,8 @@
+#Docker &releate command：
+docker commit 90586a96e128 debiandev
+docker run -itd --privileged=true -p 5000:22 -p 5001:5901 --device=/dev/video0 --name debiandev debiandev:latest
+sudo vncserver
+
 # manager
 Agenda:
 main provide robot releate feature,and other test case maybe used in feature.
