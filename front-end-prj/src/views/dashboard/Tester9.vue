@@ -95,8 +95,8 @@
     <button @click="searchtable()">
       searchtable
     </button>
-    <button @click="playvoice()">
-      playvoice
+    <button @click="playasset()">
+      playasset
     </button>
       <ag-grid-vue
         style="width: 94%; height: 200px"
@@ -104,7 +104,10 @@
         :columnDefs="columnDef"
         :rowData="rowData"
         :gridOptions="gridOptions"
+        :rowSelection="rowSelection"
         @grid-ready="onGridReady"
+        @cell-clicked="onCellClicked"
+        @selection-changed="onSelectionChanged"
       >
       </ag-grid-vue>
     </a-card>
@@ -114,7 +117,7 @@
   import "ag-grid-community/dist/styles/ag-grid.css";
   import "ag-grid-community/dist/styles/ag-theme-alpine.css";
   import { AgGridVue } from "ag-grid-vue";
-  import {searchvoice,getvoice,playvoice,savevoice} from "@/api/voiceapi.js";
+  import {searchvoice,getvoice,playvoice,playasset,savevoice} from "@/api/voiceapi.js";
   import AInput from 'ant-design-vue/lib/input/Input'
   export default {
     name: 'tester9',
@@ -124,6 +127,8 @@
     },
     data() {
       return {
+        selectedAsset:'',
+        rowSelection:'single',
         currlanguage:'select language',
         showjoy:false,
         socketdata:'',//websocket 数据定义
@@ -212,6 +217,14 @@
         this.columnApi = params.columnApi;
         this.searchtable();
       },
+      onCellClicked(){
+        // console.log('onCellClicked');
+      },
+      onSelectionChanged() {
+        const selectedRows = this.gridApi.getSelectedRows();
+        this.selectedAsset=selectedRows[0].asset_path;
+        console.log('onSelectionChanged'+selectedRows[0].asset_path);
+      },
       rangechange(){
       },
       sliderchange(i){
@@ -266,6 +279,23 @@
             console.log('search function calling')
             /*console.log(res.res)*/
             that.gridApi.setRowData(res.res)
+            return res.result
+          }).catch(err => {
+          console.log(err)
+        })
+
+      },
+      playasset(){
+        var that=this
+//                debugger
+        console.log('play asset',this.selectedAsset);
+        // that.
+        var param={steps:this.steps,asset:this.selectedAsset};
+        playasset(JSON.stringify(param))
+          .then(res => {
+            console.log('search function calling')
+            /*console.log(res.res)*/
+            // that.gridApi.setRowData(res.res)
             return res.result
           }).catch(err => {
           console.log(err)

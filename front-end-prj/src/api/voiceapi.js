@@ -17,6 +17,7 @@ const api = {
   searchvoice:'/search_voice',
   getvoice:'/get_voice',
   playvoice:'/play_voice',
+  playasset:'/play_asset',
   savevoice:'/save_voice'
 }
 export function loadinit () {
@@ -49,6 +50,13 @@ export function getvoice (parameter) {
 export function playvoice (parameter) {
   return axios({
     url: api.playvoice,
+    method: 'post',
+    data: parameter
+  })
+}
+export function playasset (parameter) {
+  return axios({
+    url: api.playasset,
     method: 'post',
     data: parameter
   })

@@ -75,6 +75,47 @@ class scscl(protocol_packet_handler):
         scs_present_speed = self.scs_hiword(scs_present_position_speed)
         return scs_present_position, self.scs_tohost(scs_present_speed, 15), scs_comm_result, scs_error
 
+    def ReadLoad(self, scs_id):
+        # scs_present_load4B, scs_comm_result, scs_error = self.read4ByteTxRx(scs_id, SCSCL_PRESENT_LOAD_L)
+        scs_present_load2B, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SCSCL_PRESENT_LOAD_L)
+        Strbyte=bin(scs_present_load2B)
+        # print(str(scs_present_load2B))
+        # scs_present_load1B, scs_comm_result, scs_error = self.read1ByteTxRx(scs_id, SCSCL_PRESENT_LOAD_L)
+        #scs_present_load = self.scs_loword(scs_present_load)
+        #scs_present_load = self.scs_hiword(scs_present_load)
+        # print(self.scs_loword(scs_present_voltage))
+        return self.scs_tohost(scs_present_load2B,10),Strbyte, scs_comm_result, scs_error
+
+    def ReadTmp(self, scs_id):
+        #scs_present_tmp4B, scs_comm_result, scs_error = self.read4ByteTxRx(scs_id, SCSCL_PRESENT_TEMPERATURE)
+        #scs_present_tmp2B, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SCSCL_PRESENT_TEMPERATURE)
+        scs_present_tmp1B, scs_comm_result, scs_error = self.read1ByteTxRx(scs_id, SCSCL_PRESENT_TEMPERATURE)
+        # scs_present_load = self.scs_loword(scs_present_load)
+        # scs_present_load = self.scs_hiword(scs_present_load)
+        # print(self.scs_loword(scs_present_voltage))
+        # return scs_present_tmp4B, scs_present_tmp2B, scs_present_tmp1B, scs_comm_result, scs_error
+        return scs_present_tmp1B, scs_comm_result, scs_error
+
+    def ReadVolt(self, scs_id):
+        #scs_present_volt4B, scs_comm_result, scs_error = self.read4ByteTxRx(scs_id, SCSCL_PRESENT_VOLTAGE)
+        #scs_present_volt2B, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SCSCL_PRESENT_VOLTAGE)
+        scs_present_volt1B, scs_comm_result, scs_error = self.read1ByteTxRx(scs_id, SCSCL_PRESENT_VOLTAGE)
+        # scs_present_load = self.scs_loword(scs_present_load)
+        # scs_present_load = self.scs_hiword(scs_present_load)
+        # print(self.scs_loword(scs_present_voltage))
+        # return scs_present_volt4B, scs_present_volt2B, scs_present_volt1B, scs_comm_result, scs_error
+        return scs_present_volt1B, scs_comm_result, scs_error
+
+    def ReadCurrPosition(self, scs_id):
+        # scs_present_currp4B, scs_comm_result, scs_error = self.read4ByteTxRx(scs_id, SCSCL_PRESENT_POSITION_L)
+        scs_present_currp2B, scs_comm_result, scs_error = self.read2ByteTxRx(scs_id, SCSCL_PRESENT_POSITION_L)
+        #scs_present_currp1B, scs_comm_result, scs_error = self.read1ByteTxRx(scs_id, SCSCL_PRESENT_POSITION_L)
+        # scs_present_load = self.scs_loword(scs_present_load)
+        # scs_present_load = self.scs_hiword(scs_present_load)
+        # print(self.scs_loword(scs_present_voltage))
+        # return scs_present_currp4B, scs_present_currp2B, scs_comm_result, scs_error
+        return scs_present_currp2B, scs_comm_result, scs_error
+
     def ReadMoving(self, scs_id):
         moving, scs_comm_result, scs_error = self.read1ByteTxRx(scs_id, SCSCL_MOVING)
         return moving, scs_comm_result, scs_error
@@ -95,6 +136,10 @@ class scscl(protocol_packet_handler):
         return self.writeTxRx(scs_id, SCSCL_MIN_ANGLE_LIMIT_L, len(txpacket), txpacket)
 
     def WritePWM(self, scs_id, time):
+        return self.write2ByteTxRx(scs_id, SCSCL_GOAL_TIME_L, self.scs_toscs(time, 10))
+
+    def WritePWMbyTime(self, scs_id, time):
+        print(self.scs_toscs(time, 10))
         return self.write2ByteTxRx(scs_id, SCSCL_GOAL_TIME_L, self.scs_toscs(time, 10))
 
     def LockEprom(self, scs_id):

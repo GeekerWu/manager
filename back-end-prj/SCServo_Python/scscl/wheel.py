@@ -31,12 +31,12 @@ sys.path.append("..")
 from scservo_sdk import *                 # Uses SCServo SDK library
 
 # Default setting
-SCS_ID                      = 1                 # SCServo ID : 1
+SCS_ID                      = 55                 # SCServo ID : 1
 BAUDRATE                    = 1000000           # SCServo default baudrate : 1000000
-DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
-                                                # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
-SCS_MOVING_SPEED0           = 500         # SCServo moving speed
-SCS_MOVING_SPEED1           = -500        # SCServo moving speed
+# DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
+DEVICENAME                  = 'COM4'      # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
+SCS_MOVING_SPEED0           = 100         # SCServo moving speed
+SCS_MOVING_SPEED1           = -100        # SCServo moving speed
 
 index = 0
 scs_move_speed = [SCS_MOVING_SPEED0, 0, SCS_MOVING_SPEED1, 0]
@@ -74,16 +74,25 @@ if scs_comm_result != COMM_SUCCESS:
 elif scs_error != 0:
     print("%s" % packetHandler.getRxPacketError(scs_error))  
 while 1:
-    print("Press any key to continue! (or press ESC to quit!)")
-    if getch() == chr(0x1b):
+    # print("Press any key to continue! (or press ESC to quit!)")
+    # if getch() == chr(0x1b):
+    #      break
+
+    print("Press read or write to continue! (or press ESC to quit!)")
+    operation = input('please in put \'w\'to write, \'r\' to read , \'s\' to status ')
+    print('input operation :',operation)
+    if operation == chr(0x1b):
         break
 
+
     # Write SCServo goal position/moving speed/moving acc
-    scs_comm_result, scs_error = packetHandler.WritePWM(SCS_ID, scs_move_speed[index])
+    print(scs_move_speed[index])
+    #scs_comm_result, scs_error = packetHandler.WritePWM(SCS_ID, scs_move_speed[index])
+    scs_comm_result, scs_error = packetHandler.WritePWMbyTime(SCS_ID, scs_move_speed[index])
     if scs_comm_result != COMM_SUCCESS:
-        print("%s" % packetHandler.getTxRxResult(scs_comm_result))
+        print("1%s" % packetHandler.getTxRxResult(scs_comm_result))
     if scs_error != 0:
-        print("%s" % packetHandler.getRxPacketError(scs_error))
+        print("0%s" % packetHandler.getRxPacketError(scs_error))
 
     # Change move speed
     index += 1

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py" line="121" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,7 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="68af181d-8f36-493e-9c8a-dfe9a93d8647" name="默认的" comment="" />
+    <list default="true" id="68af181d-8f36-493e-9c8a-dfe9a93d8647" name="默认的" comment="默认的">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCServo_Python/scscl/ping.py" beforeDir="false" afterPath="$PROJECT_DIR$/SCServo_Python/scscl/ping.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py" beforeDir="false" afterPath="$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCServo_Python/scscl/wheel.py" beforeDir="false" afterPath="$PROJECT_DIR$/SCServo_Python/scscl/wheel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SCServo_Python/scservo_sdk/scscl.py" beforeDir="false" afterPath="$PROJECT_DIR$/SCServo_Python/scservo_sdk/scscl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microphone-results.wav" beforeDir="false" afterPath="$PROJECT_DIR$/microphone-results.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/microphone-results16000.wav" beforeDir="false" afterPath="$PROJECT_DIR$/microphone-results16000.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniserver.py" beforeDir="false" afterPath="$PROJECT_DIR$/miniserver.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/speechreg.py" beforeDir="false" afterPath="$PROJECT_DIR$/speechreg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front-end-prj/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front-end-prj/vue.config.js" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,24 +42,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/back_end_prj$scs_servo_readwrite.coverage" NAME="scs_servo_readwrite Coverage Results" MODIFIED="1662032871827" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
-    <SUITE FILE_PATH="coverage/back_end_prj$testpy.coverage" NAME="testpy Coverage Results" MODIFIED="1657575996814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/back_end_prj$downloadm3u8.coverage" NAME="downloadm3u8 Coverage Results" MODIFIED="1660853694539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$pydev_umd.coverage" NAME="pydev_umd Coverage Results" MODIFIED="1660857323934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle" />
-    <SUITE FILE_PATH="coverage/back_end_prj$speechreg.coverage" NAME="speechreg Coverage Results" MODIFIED="1615173381738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$getSCSStatus.coverage" NAME="getSCSStatus Coverage Results" MODIFIED="1692345289722" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$read.coverage" NAME="read Coverage Results" MODIFIED="1662029589703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
     <SUITE FILE_PATH="coverage/back_end_prj$speechreg__1_.coverage" NAME="speechreg (1) Coverage Results" MODIFIED="1614845423607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/" />
-    <SUITE FILE_PATH="coverage/back_end_prj$mini_server.coverage" NAME="mini_server Coverage Results" MODIFIED="1609134080371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$listen.coverage" NAME="listen Coverage Results" MODIFIED="1622718292336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$sphinxwakeup.coverage" NAME="sphinxwakeup Coverage Results" MODIFIED="1658187430540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$back_end_prj.coverage" NAME="back-end-prj Coverage Results" MODIFIED="1575370232537" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/back_end_prj$waveshape.coverage" NAME="waveshape Coverage Results" MODIFIED="1615177244901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$read_write.coverage" NAME="read_write Coverage Results" MODIFIED="1662027098293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
-    <SUITE FILE_PATH="coverage/back_end_prj$combine.coverage" NAME="combine Coverage Results" MODIFIED="1615216039007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$wheel.coverage" NAME="wheel Coverage Results" MODIFIED="1690877358023" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
     <SUITE FILE_PATH="coverage/back_end_prj$sync_write.coverage" NAME="sync_write Coverage Results" MODIFIED="1662029899759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
-    <SUITE FILE_PATH="coverage/back_end_prj$miniserver.coverage" NAME="miniserver Coverage Results" MODIFIED="1689642569964" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/back_end_prj$speechwakuptest.coverage" NAME="speechwakuptest Coverage Results" MODIFIED="1615177644845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$miniserverSCS.coverage" NAME="miniserverSCS Coverage Results" MODIFIED="1692757612190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$miniserver.coverage" NAME="miniserver Coverage Results" MODIFIED="1692757881649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$record.coverage" NAME="record Coverage Results" MODIFIED="1615218047122" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$scs_CTM_read.coverage" NAME="scs_CTM_read Coverage Results" MODIFIED="1690192785761" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
+    <SUITE FILE_PATH="coverage/back_end_prj$getvoice.coverage" NAME="getvoice Coverage Results" MODIFIED="1692763640937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$scs_servo_readwrite.coverage" NAME="scs_servo_readwrite Coverage Results" MODIFIED="1690184908491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
+    <SUITE FILE_PATH="coverage/back_end_prj$testpy.coverage" NAME="testpy Coverage Results" MODIFIED="1657575996814" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$downloadm3u8.coverage" NAME="downloadm3u8 Coverage Results" MODIFIED="1660853694539" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$speechreg.coverage" NAME="speechreg Coverage Results" MODIFIED="1692782796036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$mini_server.coverage" NAME="mini_server Coverage Results" MODIFIED="1609134080371" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$ping.coverage" NAME="ping Coverage Results" MODIFIED="1692331002929" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SCServo_Python/scscl" />
+    <SUITE FILE_PATH="coverage/back_end_prj$combine.coverage" NAME="combine Coverage Results" MODIFIED="1615216039007" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/back_end_prj$speechwakuptest.coverage" NAME="speechwakuptest Coverage Results" MODIFIED="1615177644845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$speechwakup.coverage" NAME="speechwakup Coverage Results" MODIFIED="1656928124053" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
@@ -88,55 +108,58 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/downloadm3u8.py">
+        <entry file="file://$PROJECT_DIR$/miniserverSCS.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="640" column="17" selection-start-line="640" selection-start-column="17" selection-end-line="640" selection-end-column="17" />
+            <state relative-caret-position="779">
+              <caret line="52" column="36" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="36" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
+                <element signature="e#116#132#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/miniserver.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="267">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getvoice.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/miniserver.py">
+        <entry file="file://$PROJECT_DIR$/speechreg.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="361">
+              <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/read_write.py">
+        <entry file="file://$PROJECT_DIR$/miniserver_raspberry.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
-              <caret line="102" column="17" selection-start-line="85" selection-start-column="7" selection-end-line="102" selection-end-column="17" />
-              <folding>
-                <element signature="e#211#221#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="540">
+              <caret line="352" selection-start-line="352" selection-end-line="352" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py">
+        <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/protocol_packet_handler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-              <folding>
-                <element signature="e#212#222#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pwm2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
+            <state relative-caret-position="9804">
+              <caret line="516" column="43" selection-start-line="516" selection-start-column="43" selection-end-line="516" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -152,29 +175,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>oldpath</find>
-      <find>m3u8</find>
-      <find>.*.ts</find>
-      <find>url</find>
-      <find>Urllist</find>
-      <find>Urllist.txt</find>
-      <find>COMM_SUCCESS</find>
-      <find>scs_lobyte</find>
-      <find>WritePos</find>
-      <find>scs_goal_position</find>
-      <find>SCS_MOVING_SPEED</find>
-      <find>getUrlOfTs</find>
-      <find>tsUrl</find>
-      <find>urllis</find>
-      <find>/hls/</find>
-      <find>old_str</find>
-      <find>tsvideo</find>
-      <find>tsvideo2</find>
-      <find>loadTs</find>
-      <find>file</find>
-      <find>index</find>
-      <find>key</find>
-      <find>urllist</find>
       <find>urllib</find>
       <find>key.m3u8</find>
       <find>resoucesite</find>
@@ -182,6 +182,29 @@
       <find>replacestr</find>
       <find>alter</find>
       <find>path</find>
+      <find>SCS</find>
+      <find>miniserverSCS.py</find>
+      <find>read</find>
+      <find>mplay</find>
+      <find>mplayer</find>
+      <find>SCSCL_PRESENT_POSITION_L</find>
+      <find>SCSCL_PRESENT_VOLTAGE</find>
+      <find>scs_loword</find>
+      <find>10byte</find>
+      <find>ReadCurrPosition</find>
+      <find>scs_move_speed</find>
+      <find>SCSCL_GOAL_TIME_L</find>
+      <find>login</find>
+      <find>ReadLoad</find>
+      <find>56</find>
+      <find>servo</find>
+      <find>VOLTAGE</find>
+      <find>update</find>
+      <find>There is no status packet</find>
+      <find>asset</find>
+      <find>voice</find>
+      <find>DEVICENAME</find>
+      <find>get_voice</find>
     </findStrings>
     <replaceStrings>
       <replace>c.*.ts</replace>
@@ -219,7 +242,6 @@
         <option value="$PROJECT_DIR$/record.py" />
         <option value="$PROJECT_DIR$/listen.py" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/speechreg.py" />
         <option value="$PROJECT_DIR$/speechwakup.py" />
         <option value="$PROJECT_DIR$/testpy.py" />
         <option value="$PROJECT_DIR$/sphinxwakeup.py" />
@@ -229,12 +251,20 @@
         <option value="$PROJECT_DIR$/SCServo_Python/scscl/read_write.py" />
         <option value="$PROJECT_DIR$/SCServo_Python/scscl/read.py" />
         <option value="$PROJECT_DIR$/SCServo_Python/scscl/sync_write.py" />
-        <option value="$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py" />
         <option value="$PROJECT_DIR$/downloadm3u82.py" />
         <option value="$PROJECT_DIR$/downloadm3u8.py" />
-        <option value="$PROJECT_DIR$/miniserver.py" />
         <option value="$PROJECT_DIR$/aaaaa.py" />
+        <option value="$PROJECT_DIR$/aaa.py" />
+        <option value="$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py" />
+        <option value="$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py" />
+        <option value="$PROJECT_DIR$/SCServo_Python/scscl/wheel.py" />
+        <option value="$PROJECT_DIR$/SCServo_Python/scscl/ping.py" />
+        <option value="$PROJECT_DIR$/SCServo_Python/scservo_sdk/scscl.py" />
+        <option value="$PROJECT_DIR$/getSCSStatus.py" />
         <option value="$PROJECT_DIR$/miniserverSCS.py" />
+        <option value="$PROJECT_DIR$/miniserver.py" />
+        <option value="$PROJECT_DIR$/getvoice.py" />
+        <option value="$PROJECT_DIR$/speechreg.py" />
       </list>
     </option>
   </component>
@@ -246,10 +276,10 @@
   </component>
   <component name="JupyterTrust" id="d4cc46b4-a238-4a21-8eda-95aad8a5b21c" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="812" />
-    <option name="y" value="446" />
-    <option name="width" value="2205" />
-    <option name="height" value="1480" />
+    <option name="x" value="396" />
+    <option name="y" value="255" />
+    <option name="width" value="3390" />
+    <option name="height" value="1825" />
   </component>
   <component name="ProjectId" id="1l5vVdELpHWyXHwJrMhAXSH8h8N" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -286,6 +316,11 @@
               <item name="back-end-prj" type="b2602c69:ProjectViewProjectNode" />
               <item name="back-end-prj" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="back-end-prj" type="b2602c69:ProjectViewProjectNode" />
+              <item name="back-end-prj" type="462c0819:PsiDirectoryNode" />
+              <item name="voiceasset" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -307,15 +342,16 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL&#10;Sqlite (Xerial)" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../snowboy-master" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PyCharm 2018.2.8\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/speechreg.py" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\GeekerWu\Desktop\manager\back-end-prj\SCServo_Python\scscl" />
       <recent name="C:\Users\GeekerWu\Desktop\manager\back-end-prj" />
     </key>
   </component>
@@ -331,7 +367,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.miniserver">
+  <component name="RunManager" selected="Python.speechreg">
     <configuration name="back-end-prj" type="PythonConfigurationType" factoryName="Python" singleton="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -354,7 +390,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="downloadm3u8" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="getSCSStatus" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -367,16 +403,16 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/downloadm3u8.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/getSCSStatus.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="downloadm3u82" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="getvoice" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -389,9 +425,9 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/downloadm3u82.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/getvoice.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -420,7 +456,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="scs_servo_readwrite" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="miniserverSCS" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -428,12 +464,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SCServo_Python/scscl" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/miniserverSCS.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -442,7 +478,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="sync_write" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="speechreg" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="back-end-prj" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -450,12 +486,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/SCServo_Python/scscl" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/SCServo_Python/scscl/sync_write.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/speechreg.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -466,19 +502,19 @@
     </configuration>
     <list>
       <item itemvalue="Python.back-end-prj" />
-      <item itemvalue="Python.downloadm3u8" />
-      <item itemvalue="Python.sync_write" />
-      <item itemvalue="Python.scs_servo_readwrite" />
-      <item itemvalue="Python.downloadm3u82" />
+      <item itemvalue="Python.miniserverSCS" />
+      <item itemvalue="Python.getSCSStatus" />
       <item itemvalue="Python.miniserver" />
+      <item itemvalue="Python.getvoice" />
+      <item itemvalue="Python.speechreg" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.speechreg" />
+        <item itemvalue="Python.getvoice" />
         <item itemvalue="Python.miniserver" />
-        <item itemvalue="Python.downloadm3u8" />
-        <item itemvalue="Python.downloadm3u82" />
-        <item itemvalue="Python.scs_servo_readwrite" />
-        <item itemvalue="Python.sync_write" />
+        <item itemvalue="Python.miniserverSCS" />
+        <item itemvalue="Python.getSCSStatus" />
       </list>
     </recent_temporary>
   </component>
@@ -518,16 +554,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="414" y="337" width="1764" height="1184" extended-state="0" />
+    <frame x="318" y="205" width="2712" height="1459" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4985507" visible="true" weight="0.26260257" />
-      <window_info id="Structure" order="1" sideWeight="0.5014493" side_tool="true" weight="0.21283354" />
-      <window_info id="Favorites" order="2" sideWeight="0.5014493" side_tool="true" weight="0.21283354" />
-      <window_info anchor="bottom" id="Inspection Results" visible="true" weight="0.32911393" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49710146" visible="true" weight="0.17746797" />
+      <window_info id="Structure" order="1" sideWeight="0.5028986" side_tool="true" weight="0.26846424" />
+      <window_info id="Favorites" order="2" sideWeight="0.5028986" side_tool="true" weight="0.26846424" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32938644" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.44011685" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49936467" weight="0.39922103" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28878647" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49936467" weight="0.3640553" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32814023" />
@@ -535,16 +570,17 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32814023" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32921028" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5006353" side_tool="true" weight="0.39922103" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.28432328" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32424536" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.28379512" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3240974" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.32939714" />
       <window_info anchor="bottom" id="SQL Generator" order="14" weight="0.32939714" />
       <window_info anchor="bottom" id="File Transfer" order="15" weight="0.31075203" />
       <window_info anchor="bottom" id="TypeScript" order="16" />
+      <window_info anchor="bottom" id="Inspection Results" order="17" visible="true" weight="0.32911393" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" visible="true" weight="0.15416178" />
+      <window_info active="true" anchor="right" id="SciView" order="3" visible="true" weight="0.0990957" />
       <window_info anchor="right" id="Database" order="4" weight="0.8959508" />
       <window_info anchor="right" id="Remote Host" order="5" weight="0.29937357" />
     </layout>
@@ -563,6 +599,14 @@
               </option>
               <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
                 <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
               </option>
             </State>
           </value>
@@ -620,6 +664,42 @@
     </state>
     <state x="364" y="165" width="285" height="475" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.36.1024.732/0.36.1024.732@0.36.1024.732" timestamp="1606904554223" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py</url>
+          <line>122</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py</url>
+          <line>124</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py</url>
+          <line>126</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py</url>
+          <line>133</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/getvoice.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/back_end_prj$init_pwm.coverage" NAME="init_pwm Coverage Results" MODIFIED="1609120668794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/back_end_prj$camera.coverage" NAME="camera Coverage Results" MODIFIED="1607003365089" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -627,49 +707,6 @@
     <SUITE FILE_PATH="coverage/back_end_prj$pwm2.coverage" NAME="pwm2 Coverage Results" MODIFIED="1606905557884" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/speechwakuptest.py" />
-    <entry file="file://C:/ProgramData/Anaconda3/envs/back-end-prj/Lib/subprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="1016" selection-start-line="1016" selection-end-line="1016" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/envs/back-end-prj/Lib/wave.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="158" selection-start-line="158" selection-end-line="158" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mini_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12521">
-          <caret line="667" column="41" selection-start-line="667" selection-start-column="37" selection-end-line="667" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/combine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/record.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/waveshape.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="28" column="10" selection-start-line="28" selection-start-column="10" selection-end-line="28" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/c5f4e3a1-367e-4226-ba18-d1f7e12db907/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
@@ -703,21 +740,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/my.m3u8" />
-    <entry file="file://$PROJECT_DIR$/listen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsvideo/my.m3u8" />
-    <entry file="file://$PROJECT_DIR$/speechreg.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="39" column="27" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsvideo/index.m3u8" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -733,51 +756,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/speechwakup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sphinxwakeup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SCServo_Python/sms_sts/ping.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/wheel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/port_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/scscl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="164">
-          <caret line="86" column="89" selection-start-line="86" selection-start-column="79" selection-end-line="86" selection-end-column="89" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/read.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="66" column="12" lean-forward="true" selection-start-line="66" selection-start-column="12" selection-end-line="66" selection-end-column="12" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/sync_write.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -793,20 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/protocol_packet_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="65" column="27" lean-forward="true" selection-start-line="65" selection-start-column="19" selection-end-line="65" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/write.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="77" column="55" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tsvideo/Urllist.txt" />
     <entry file="file://$PROJECT_DIR$/downloadm3u82.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -815,55 +781,231 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/aaaaa.py" />
     <entry file="file://$PROJECT_DIR$/pwm2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="209">
+          <caret line="11" column="38" lean-forward="true" selection-start-line="11" selection-start-column="38" selection-end-line="11" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/downloadm3u8.py">
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="640" column="17" selection-start-line="640" selection-start-column="17" selection-end-line="640" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="621">
+          <caret line="262" column="17" lean-forward="true" selection-start-line="262" selection-start-column="17" selection-end-line="262" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/read_write.py">
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/reg_write.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="102" column="17" selection-start-line="85" selection-start-column="7" selection-end-line="102" selection-end-column="17" />
-          <folding>
-            <element signature="e#211#221#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1286" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="887">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/group_sync_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2458" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/scservo_def.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-64" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/port_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="93" selection-start-line="93" selection-end-line="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/sms_sts.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/write.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="77" column="55" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/scs_servo_readwrite.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
+        <state relative-caret-position="-1244">
+          <caret line="70" column="60" selection-start-line="69" selection-start-column="4" selection-end-line="70" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/ping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1102">
+          <caret line="59" column="45" selection-start-line="59" selection-start-column="45" selection-end-line="59" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/scs_CTM_read.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2242">
+          <caret line="119" column="109" selection-start-line="115" selection-start-column="12" selection-end-line="120" selection-end-column="33" />
           <folding>
             <element signature="e#212#222#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/aaaaa.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniserverSCS.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniserver.py">
+    <entry file="file://$PROJECT_DIR$/getSCSStatus.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="2888">
+          <caret line="154" selection-start-line="154" selection-end-line="154" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/scscl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="874">
+          <caret line="48" column="21" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/read_write.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="93" column="77" selection-start-line="93" selection-start-column="77" selection-end-line="93" selection-end-column="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scscl/wheel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1710">
+          <caret line="91" column="39" selection-start-line="91" selection-start-column="39" selection-end-line="91" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechwakup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="108" column="14" lean-forward="true" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/combine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/record.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Vserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-570" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/waveshape.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sphinxwakeup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniserverSCS.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="52" column="36" selection-start-line="52" selection-start-column="26" selection-end-line="52" selection-end-column="36" />
+          <folding>
+            <element signature="e#116#132#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SCServo_Python/scservo_sdk/protocol_packet_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9804">
+          <caret line="516" column="43" selection-start-line="516" selection-start-column="43" selection-end-line="516" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniserver_raspberry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="352" selection-start-line="352" selection-end-line="352" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/downloadm3u8.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="258" column="5" lean-forward="true" selection-start-line="244" selection-start-column="4" selection-end-line="258" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/listen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3515">
+          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/envs/back-end-prj/Lib/site-packages/playsound.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getvoice.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/speechreg.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="60" column="16" lean-forward="true" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>

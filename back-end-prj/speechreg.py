@@ -11,13 +11,14 @@ import time
 #from aip import AipSpeech
 
 """ 你的 APPID AK SK """
-APP_ID = '23742613'
-API_KEY = 'ZgZG4EDvfBcCKAYzYOl6u4BQ'
-SECRET_KEY = 'Rd7PwMXXFK2mhnV99Qt2QjY2HAGRPuvN'
+APP_ID = '38144735'
+API_KEY = 'llXWz6b36Wi6zALs60LZfLT7'
+SECRET_KEY = '4tVp4v4aNVsEt3XKwlQtoRM8Q83j5WaP'
 client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
-result = client.synthesis('干嘛呢？', 'zh', 1, {
-'vol': 5,
-})
+'''
+print(result)
+with open('audio.mp3', 'wb') as f:
+    f.write(result)
 
 # 识别正确返回语音二进制 错误则返回dict 参照下面错误码
 if not isinstance(result, dict):
@@ -33,7 +34,10 @@ try:
 except IOError:
     print('Warning: 没有找到文件或读取文件失败')
 
-
+'''
+result = client.synthesis('干嘛呢？', 'zh', 1, {
+'vol': 5,
+})
 # obtain audio from the microphone
 r = sr.Recognizer()
 with sr.Microphone() as source:

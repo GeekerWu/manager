@@ -4,25 +4,112 @@ suuport v covert from web request
 flask based
 @author: wuqi2
 '''
-
 #import Adafruit_PCA9685
+import threading
+import librosa
+import ffmpeg
+import soundfile as sf
+from threading import Thread
+from playsound import playsound
+import requests
 import time
+import shutil, os
+
+
+import sys
+if os.name == 'nt':
+    print('windows')
+else:
+    import sys, tty, termios
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    def getch():
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+sys.path.append("..")
+from SCServo_Python.scservo_sdk import *                      # Uses SCServo SDK library
+
+# Default setting
+BAUDRATE                    = 1000000           # SCServo default baudrate : 1000000
+#DEVICENAME                  = '/dev/ttyUSB0'    # Check which port is being used on your controller
+DEVICENAME                  = 'COM4'    # Check which port is being used on your controller
+                                                # ex) Windows: "COM1"   Linux: "/dev/ttyUSB0" Mac: "/dev/tty.usbserial-*"
+
+SCS_MINIMUM_POSITION_VALUE  = 10                # SCServo will rotate between this value
+SCS_MAXIMUM_POSITION_VALUE  = 1000
+SCS_MOVING_SPEED            = 2400              # SCServo moving speed
+
+index = 0
+scs_goal_position = [SCS_MINIMUM_POSITION_VALUE, SCS_MAXIMUM_POSITION_VALUE]         # Goal position
+
+# Initialize PortHandler instance
+# Set the port path
+# Get methods and members of PortHandlerLinux or PortHandlerWindows
+portHandler = PortHandler(DEVICENAME)
+
+# Initialize PacketHandler instance
+# Get methods and members of Protocol
+packetHandler = scscl(portHandler)
+
+# Open port
+if portHandler.openPort():
+    print("Succeeded to open the port")
+else:
+    print("Failed to open the port")
+    print("Press any key to terminate...")
+    quit()
+
+
+# Set port baudrate
+if portHandler.setBaudRate(BAUDRATE):
+    print("Succeeded to change the baudrate")
+else:
+    print("Failed to change the baudrate")
+    print("Press any key to terminate...")
+    quit()
+
+
+
+
+def async_call(f):
+    def wrapper(*args, **kwargs):
+        thr = Thread(target=f, args=args, kwargs=kwargs)
+        thr.start()
+
+    return wrapper
+
+
+@async_call
+def speech(filename):
+    # print(str(filename))
+    # os.system('mplayer %s' % './voiceasset/' + filename + '.wav')
+    # support rasp
+    # os.system('mplayer %s' % 'audio.mp3')
+
+    # support windows
+    playsound('./voiceasset/'+filename+'.wav')
 
 # pwm = Adafruit_PCA9685.PCA9685(0x40)
 # pwm2 = Adafruit_PCA9685.PCA9685(0x41)
 # pwm3 = Adafruit_PCA9685.PCA9685(0x42)
 
+def set_servo_angle(channel, angle):
+    print('set Servo Channel:%s Angle:%s '%(channel,angle))
+    # date = int(4096 * ((angle * 11) + 500) / (20000))
+    # date=int(4096*((angle*11)+500)/(20000)+0.5)
+    # date = date * 10
+    # print(channel, date)
+    # if channel <= 15:
+    #     print('set pwm')
+        # time.sleep(1)
 
-# def set_servo_angle(channel, date):
-#     # date=4096*((angle*11)+500)/20000
-#     # date=int(4096*((angle*11)+500)/(20000)+0.5)
-#     date = date * 10
-#     print(channel, date)
-#
-#     if channel <= 15:
-#
-#         pwm.set_pwm(channel, 0, date)
-#
+
+#         pwm3.set_pwm(channel, 0, date)
 #     elif channel > 15 and channel <= 31:
 #         channel = channel - 16
 #         #time.sleep(1)
@@ -33,13 +120,9 @@ import time
 #         #time.sleep(1)
 #         pwm3.set_pwm(channel, 0, date)
 
-
-
-
 import pymysql
 from flask import Flask, request
 from flask_socketio import SocketIO, emit
-
 
 # import pyhdb
 # from ffmpy import FFmpeg
@@ -55,20 +138,22 @@ false = null = true = ""
 app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins='*')
 CORS(app)
+
+
 @app.route('/api/delete_init', methods=['POST'])
 def deleteinit():
     deletechannel = request.get_data()
     # dictobj = json.loads(data)
-    deletechannel =int(deletechannel)
+    deletechannel = int(deletechannel)
     print('deletechannel:', deletechannel)
     # delete data:
     conn = pymysql.connect(
-        host = 'localhost',
-        user = 'root',
-        passwd = 'root',
-        port = 3306,
-        db = 'ml',
-        charset = 'utf8'
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
     )
     # 获取一个光标
     cursor = conn.cursor()
@@ -85,17 +170,16 @@ def deleteinit():
     return 'done'
 
 
-
 @app.route('/api/load_init', methods=['GET'])
 def loadinit():
-    #get data:
+    # get data:
     conn = pymysql.connect(
-        host = 'localhost',
-        user = 'root',
-        passwd = 'root',
-        port = 3306,
-        db = 'ml',
-        charset = 'utf8'
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
     )
     # 获取一个光标
     cursor = conn.cursor()
@@ -105,47 +189,593 @@ def loadinit():
     cursor.execute(sql)
     res = cursor.fetchall()  # 获取结果
     print('res', res)
-    data ='';
+    data = '';
     for item in res:
-        #print('item:', item)
-        if data=='':
+        # print('item:', item)
+        if data == '':
             data = data + '[' + json.dumps(
                 {"channel": item[0], "min": item[1], "max": item[2], "currval": item[3], "channel_name": item[4]})
         else:
-            data=data+','+json.dumps({"channel":item[0],"min":item[1],"max":item[2], "currval":item[3], "channel_name":item[4]})
-        #print('json item:',jsonitem)
-    data=data+']'
+            data = data + ',' + json.dumps(
+                {"channel": item[0], "min": item[1], "max": item[2], "currval": item[3], "channel_name": item[4]})
+        # print('json item:',jsonitem)
+    data = data + ']'
     # print(dictobj['a'])
     # 关闭连接
     cursor.close()
     conn.close()
     print('data', data)
-    resdata='{\"res\":'+data+'}'
-    print('resdata',resdata)
+    resdata = '{\"res\":' + data + '}'
+    print('resdata', resdata)
     return resdata
+
+
+@app.route('/api/search_event', methods=['POST'])
+def search_event():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # get data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "select * from event_asset;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    res = cursor.fetchall()  # 获取结果
+    # print('res', res)
+    data = '';
+    for item in res:
+        # print('item:', item) `asset_id` `event_name` `event_condition``animation` `voice``voice_start`
+        if data == '':
+            data = data + '[' + json.dumps(
+                {"asset_id": item[0], "event_name": item[1], "event_condition": item[2], "animation": item[3],
+                 "voice": item[4], "voice_start": item[5]})
+        else:
+            data = data + ',' + json.dumps(
+                {"asset_id": item[0], "event_name": item[1], "event_condition": item[2], "animation": item[3],
+                 "voice": item[4], "voice_start": item[5]})
+        # print('json item:',jsonitem)
+    data = data + ']'
+    # print(dictobj['a'])
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    # print('data', data)
+    resdata = '{\"res\":' + data + '}'
+    # print('resdata',resdata)
+    return resdata
+
+
+@app.route('/api/save_event', methods=['POST'])
+def save_event():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # get data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "select * from event_asset;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    res = cursor.fetchall()  # 获取结果
+    # print('res', res)
+    data = '';
+    for item in res:
+        # print('item:', item) `asset_id` `event_name` `event_condition``animation` `voice``voice_start`
+        if data == '':
+            data = data + '[' + json.dumps(
+                {"asset_id": item[0], "event_name": item[1], "event_condition": item[2], "animation": item[3],
+                 "voice": item[4], "voice_start": item[5]})
+        else:
+            data = data + ',' + json.dumps(
+                {"asset_id": item[0], "event_name": item[1], "event_condition": item[2], "animation": item[3],
+                 "voice": item[4], "voice_start": item[5]})
+        # print('json item:',jsonitem)
+    data = data + ']'
+    # print(dictobj['a'])
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    # print('data', data)
+    resdata = '{\"res\":' + data + '}'
+    # print('resdata',resdata)
+    return resdata
+
+
+@app.route('/api/play_event', methods=['POST'])
+def play_event():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    # print ('res data:',dictobj['animaname'])
+    print('event play start')
+    eventname = dictobj['eventname']
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    cur = conn.cursor()  # 建立游标
+    cur.execute("select * from event_asset where event_name ='" + eventname + "' order by voice_start")  # 查询数据
+    res = cur.fetchall()  # 获取结果
+    animationname = res[0][3]
+    cur.execute(
+        "select voice ,voice_start from event_asset where event_name ='" + eventname + "' order by voice_start")  # 查询数据
+    voicelist = list(cur.fetchall())  # 获取结果
+    print('voicelist', voicelist)
+    cur.execute("select * from animation where animation_name ='" + animationname + "' order by time_stamp")  # 查询数据
+    res = cur.fetchall()  # 获取结果
+    timeline = res[0][5]
+    cur.close()  # 关闭游标
+    conn.close()  # 关闭连接
+    # print('timeline'+timeline)
+    # speech('librosa_tts')
+    for stamp in range(0, int(timeline) + 1):
+        time.sleep(0.2)  # animation stemp per second
+        for item in voicelist:
+            # print(item[1],stamp,int(item[1])==int(stamp))
+            if int(item[1]) == int(stamp):
+                print(item[0], item[1], stamp)
+                # t=threading.Thread(target=speech,args=(item[0]))
+                # t.start()
+                speech(item[0])
+        # print('anima stamp:',stamp)
+
+        for item in res:
+            # print(item[4])
+            if int(item[4]) == stamp:
+                # print(item)
+                # item smaple : ('rrr', '6', 'neckright', '514', '0', '12')
+                t = threading.Thread(target=set_servo_angle, args=(int(item[1]), int(item[3])))
+                t.start()
+
+    # resstr=''
+    # resstr= resstr+item[0]
+    print('event play end')
+    return 'event play end'
+
+
+@app.route('/api/play_voice', methods=['POST'])
+def play_voice():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # get data:
+    print('data', dictobj['steps'])
+    if os.path.exists("./voiceasset/tmp.wav"):
+        os.remove("./voiceasset/tmp.wav")
+    ffmpeg.input('./voiceasset/tts.mp3').output('./voiceasset/tmp.wav', ar=22500).run()
+    y, sr = librosa.load('./voiceasset/tmp.wav')
+    b = librosa.effects.pitch_shift(y, sr, n_steps=dictobj['steps'])
+    sf.write('./voiceasset/librosa_tts.wav', b, sr)
+    os.system('mplayer %s' % './voiceasset/librosa_tts.wav')
+    resdata = '{\"res\":' + str(dictobj) + '}'
+    return resdata
+
+
+@app.route('/api/save_voice', methods=['POST'])
+def save_voice():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # speechtext,languagetype,steps,mean
+    print('data', dictobj['speechtext'], dictobj['mean'], dictobj['languagetype'], dictobj['steps'])
+    # rename file
+    shutil.copy('./voiceasset/librosa_tts.wav', './voiceasset/' + dictobj['speechtext'] + '.wav')
+    duration = librosa.get_duration(filename='./voiceasset/' + dictobj['speechtext'] + '.wav')
+    print('duration', round(duration, 1))
+    # print(str('./voiceasset/'+dictobj['speechtext']+'.wav'))
+    data = [];
+    # INSERT INTO ml.voice_asset ( `text`, asset_path, mean, language_type,steps)
+    data.append((dictobj['speechtext'], './voiceasset/' + dictobj['speechtext'] + '.wav', dictobj['mean'],
+                 dictobj['languagetype'], dictobj['steps'], str(round(duration, 1))))
+    print('sql data:', data)
+    # insert data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句 ('r', '0', 'eyeud', 491, 2, '10')
+    # print(data[0])
+    sql = "delete from voice_asset where text='" + data[0][0] + "';"
+    # 拼接并执行SQL语句
+    # print(sql)
+    cursor.execute(sql)
+    conn.commit()
+
+    # 定义要执行的sql语句INSERT ml.voice_asset ( `text`, asset_path, mean, language_type,steps)
+    sql = "insert into voice_asset(text,asset_path,mean,language_type,steps,duration) values(%s,%s,%s,%s,%s,%s);"
+    # data = [
+    #     ('july', '147'),
+    #     ('june', '258'),
+    #     ('marin', '369')
+    # ]
+    # 拼接并执行sql语句
+    cursor.executemany(sql, data)
+    # 涉及写操作要注意提交
+    conn.commit()
+    resdata = '{\"res\":' + str(dictobj) + '}'
+    return resdata
+
+
+@app.route('/api/get_voice', methods=['POST'])
+def get_voice():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # get data:
+    print('data', dictobj['speechtext'], dictobj['languagetype'])
+    url = 'https://fanyi.baidu.com/gettts?lan=' + dictobj['languagetype'] + '&text=' + dictobj[
+        'speechtext'] + '&spd=1&source=web'
+    r = requests.get(url)
+    with open("./voiceasset/tts.mp3", "wb") as code:
+        code.write(r.content)
+    resdata = '{\"res\":' + dictobj['speechtext'] + dictobj['languagetype'] + '}' + url
+    print('resdata', resdata)
+    os.system('mplayer %s' % './voiceasset/tts.mp3')
+    return resdata
+
+
+@app.route('/api/search_voice', methods=['POST'])
+def search_voice():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('reqest data:', dictobj)
+    # get data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    sql = "select * from voice_asset;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    res = cursor.fetchall()  # 获取结果
+    # print('res', res)
+    data = '';
+    for item in res:
+        # print('item:', item)
+        if data == '':
+            data = data + '[' + json.dumps(
+                {"asset_id": item[0], "text": item[1], "asset_path": item[2], "mean": item[3], "language_type": item[4],
+                 "steps": item[5], "duration": item[6]})
+        else:
+            data = data + ',' + json.dumps(
+                {"asset_id": item[0], "text": item[1], "asset_path": item[2], "mean": item[3], "language_type": item[4],
+                 "duration": item[6]})
+        # print('json item:',jsonitem)
+    data = data + ']'
+    # print(dictobj['a'])
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    # print('data', data)
+    resdata = '{\"res\":' + data + '}'
+    # print('resdata',resdata)
+    return resdata
+
+
+@app.route('/api/search_table', methods=['POST'])
+def searchtable():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print(dictobj)
+    if 'animaname' in dictobj:
+        print('reqest data:', dictobj['animaname'])
+        # get data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    if 'animaname' in dictobj:
+        sql = "select * from animation where animation_name ='" + dictobj['animaname'] + "';"
+    else:
+        sql = "select * from animation;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    res = cursor.fetchall()  # 获取结果
+    print('res', res)
+    data = '';
+    for item in res:
+        # print('item:', item)
+        if data == '':
+            data = data + '[' + json.dumps(
+                {"animation_name": item[0], "channel": item[1], "channel_name": item[2], "channel_value": item[3],
+                 "time_stamp": item[4], "timeline": item[5]})
+        else:
+            data = data + ',' + json.dumps(
+                {"animation_name": item[0], "channel": item[1], "channel_name": item[2], "channel_value": item[3],
+                 "time_stamp": item[4], "timeline": item[5]})
+        # print('json item:',jsonitem)
+    data = data + ']'
+    # print(dictobj['a'])
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    print('data', data)
+    resdata = '{\"res\":' + data + '}'
+    print('resdata', resdata)
+    return resdata
+
+
+@app.route('/api/update_anima', methods=['POST'])
+def update_anima():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    # print ('res data:',dictobj)
+    data = [];
+    for item in dictobj:
+        # print('item:',item)
+        # print('item:', item['channel'])
+        data.append((item['animaname'], item['channel'], item['channel_name'], item['currval'], item['timestamp'],
+                     item['timeline']))
+        # data.append('('+item['channel']+','+item['min']+','+item['max']+','+item['init']+')')
+    # dictobj = json.loads(data)
+    # print(dictobj['a'])
+    # print('sql data:',data)
+    # insert data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句 ('r', '0', 'eyeud', 491, 2, '10')
+    # print(data[0])
+    sql = "delete from animation where animation_name='" + data[0][0] + "' and time_stamp='" + str(data[0][4]) + "';"
+    # 拼接并执行SQL语句
+    # print(sql)
+    cursor.execute(sql)
+    conn.commit()
+
+    # 定义要执行的sql语句
+    sql = "insert into animation(animation_name,channel,channel_name,channel_value,time_stamp,total_time) values(%s,%s,%s,%s,%s,%s);"
+    # data = [
+    #     ('july', '147'),
+    #     ('june', '258'),
+    #     ('marin', '369')
+    # ]
+    # 拼接并执行sql语句
+    cursor.executemany(sql, data)
+    # 涉及写操作要注意提交
+    conn.commit()
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    return 'update done'
+
+
+@app.route('/api/save_anima', methods=['POST'])
+def save_anima():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    print('res data:', dictobj)
+    data = [];
+    for item in dictobj:
+        print('item:', item)
+        # print('item:', item['channel'])
+        data.append((item['animaname'], item['channel'], item['channel_name'], item['currval'], item['timestamp'],
+                     item['timeline']))
+        # data.append('('+item['channel']+','+item['min']+','+item['max']+','+item['init']+')')
+    # dictobj = json.loads(data)
+    # print(dictobj['a'])
+    print('sql data:', data)
+    # insert data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句
+    '''sql = "delete from pose_init;"
+    # 拼接并执行SQL语句
+    cursor.execute(sql)
+    conn.commit()
+    '''
+    # 定义要执行的sql语句
+    sql = "insert into animation(animation_name,channel,channel_name,channel_value,time_stamp,total_time) values(%s,%s,%s,%s,%s,%s);"
+    # data = [
+    #     ('july', '147'),
+    #     ('june', '258'),
+    #     ('marin', '369')
+    # ]
+    # 拼接并执行sql语句
+    cursor.executemany(sql, data)
+    # 涉及写操作要注意提交
+    conn.commit()
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    return 'hahahha'
+
+
+@app.route('/api/update_event', methods=['POST'])
+def update_event():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    # print ('res data:',dictobj)
+    data = [];
+    for item in dictobj:
+        # print('item:',item)
+        # print('item:', item['channel'])
+        data.append(
+            (item['event_name'], item['event_condition'], item['animation'], item['voice'], item['voice_start']))
+        # data.append('('+item['channel']+','+item['min']+','+item['max']+','+item['init']+')')
+    # dictobj = json.loads(data)
+    # print(dictobj['a'])
+    # print('sql data:',data)
+    # insert data:
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    # 获取一个光标
+    cursor = conn.cursor()
+    # 定义将要执行的SQL语句 ('r', '0', 'eyeud', 491, 2, '10')
+    # print(data[0])
+    sql = "delete from event_asset where event_name='" + data[0][0] + "';"
+    # 拼接并执行SQL语句
+    # print(sql)
+    cursor.execute(sql)
+    conn.commit()
+    # INSERT INTO ml.event_asset (asset_id, event_name, event_condition, animation, voice, voice_start) VALUES(1, 'tester', 'manual', 'r', '你好啊', '1');
+    # 定义要执行的sql语句
+    sql = "insert into event_asset(event_name, event_condition, animation, voice, voice_start) values(%s,%s,%s,%s,%s);"
+    # data = [
+    #     ('july', '147'),
+    #     ('june', '258'),
+    #     ('marin', '369')
+    # ]
+    # 拼接并执行sql语句
+    cursor.executemany(sql, data)
+    # 涉及写操作要注意提交
+    conn.commit()
+    # 关闭连接
+    cursor.close()
+    conn.close()
+    return 'update event done'
+
+
+@app.route('/api/play_anima', methods=['POST'])
+def play_anima():
+    data = request.get_data()
+    print(data)
+    dictobj = json.loads(data)
+    # print ('res data:',dictobj['animaname'])
+    print('anima play start')
+    animationname = dictobj['animaname']
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    cur = conn.cursor()  # 建立游标
+    cur.execute("select * from animation where animation_name ='" + animationname + "' order by time_stamp")  # 查询数据
+    res = cur.fetchall()  # 获取结果
+    timeline = res[0][5]
+    cur.close()  # 关闭游标
+    conn.close()  # 关闭连接
+    # print('timeline'+timeline)
+
+    for stamp in range(0, int(timeline) + 1):
+        time.sleep(0.2)  # animation stemp per second
+        # print('anima stamp:',stamp)
+        for item in res:
+            # print(item[4])
+            if int(item[4]) == stamp:
+                # print(item)
+                # item smaple : ('rrr', '6', 'neckright', '514', '0', '12')
+                t = threading.Thread(target=set_servo_angle, args=(int(item[1]), int(item[3])))
+                t.start()
+    # resstr=''
+    # resstr= resstr+item[0]
+    print('anima play end')
+    return 'anima play end'
+
+
+@app.route('/api/delete_anima', methods=['POST'])
+def delete_anima():
+    data = request.get_data()
+    dictobj = json.loads(data)
+    # print ('res data:',dictobj['animaname'])
+    print('anima delete start')
+    animationname = dictobj['animaname']
+    conn = pymysql.connect(
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
+    )
+    cur = conn.cursor()  # 建立游标
+    cur.execute("delete from animation where animation_name ='" + animationname + "'")  # 查询数据
+    res = cur.fetchall()  # 获取结果
+    print(res)
+    cur.close()  # 关闭游标
+    conn.commit()
+    conn.close()  # 关闭连接
+    print('anima delete end')
+    return 'anima delete end'
+
 
 @app.route('/api/save_init', methods=['POST'])
 def saveinit():
     data = request.get_data()
     dictobj = json.loads(data)
-    print ('res data:',dictobj)
-    data=[];
+    print('res data:', dictobj)
+    data = [];
     for item in dictobj:
-        print('item:',item)
+        print('item:', item)
         # print('item:', item['channel'])
-        data.append((item['channel'] ,item['min'],item['max'],item['currval'],item['channel_name']))
+        data.append((item['channel'], item['min'], item['max'], item['currval'], item['channel_name']))
         # data.append('('+item['channel']+','+item['min']+','+item['max']+','+item['init']+')')
     # dictobj = json.loads(data)
     # print(dictobj['a'])
-    print('sql data:',data)
-    #insert data:
+    print('sql data:', data)
+    # insert data:
     conn = pymysql.connect(
-        host = 'localhost',
-        user = 'root',
-        passwd = 'root',
-        port = 3306,
-        db = 'ml',
-        charset = 'utf8'
+        host='localhost',
+        user='root',
+        passwd='root',
+        port=3306,
+        db='ml',
+        charset='utf8'
     )
     # 获取一个光标
     cursor = conn.cursor()
@@ -172,6 +802,7 @@ def saveinit():
 
     return 'hahahha'
 
+
 '''
 {
 "a":"astr",
@@ -190,8 +821,8 @@ def poseset():
         print('item:', item)
         # print('item:', item['channel'])
         print(item['channel'], item['currval'])
-        time.sleep(1)
-       # set_servo_angle(int(item['channel']), int(item['currval']))
+        # time.sleep(1)
+    # set_servo_angle(int(item['channel']), int(item['currval']))
     return 'hahahha'
 
 
@@ -209,22 +840,23 @@ def vconvert():
     #     ff.run()
     return data
 
+
 @app.route('/getsql', methods=['GET'])
 def getdata():
     coon = pymysql.connect(
-    #host='localhost', user='test', passwd='test',
-    host = 'localhost', user = 'root', passwd = 'root',
-    port = 3306, db = 'mysql', charset = 'utf8'
-    # port必须写int类型
-    # charset必须写utf8，不能写utf-8
+        # host='localhost', user='test', passwd='test',
+        host='localhost', user='root', passwd='root',
+        port=3306, db='mysql', charset='utf8'
+        # port必须写int类型
+        # charset必须写utf8，不能写utf-8
     )
     cur = coon.cursor()  # 建立游标
     cur.execute("select * from usr_info")  # 查询数据
     res = cur.fetchall()  # 获取结果
-    resstr=''
+    resstr = ''
     for item in res:
         print(item)
-        resstr= resstr+item[0]
+        resstr = resstr + item[0]
     cur.close()  # 关闭游标
     coon.close()  # 关闭连接
 
@@ -271,6 +903,7 @@ def getdata():
     #     print ( "fetchall data failed:", why.args[0])
     #     return "fetchall data failed:", why.args[0]
 
+
 @app.route('/web', methods=['GET', 'POST'])
 def webServer():
     print(request.method)
@@ -312,6 +945,7 @@ def webServer():
         print("Else")
         resp = 'Post helloworld'
         return resp
+
 
 @app.route('/api/auth/login', methods=['POST'])
 def vueServer():
@@ -356,6 +990,7 @@ def vueServer():
         #         print(resp)
         return resp
 
+
 @app.route('/api/auth/2step-code', methods=['POST'])
 def twostep_code():
     if request.method == 'POST':
@@ -383,6 +1018,7 @@ def logout():
     res = {"stepCode": 1}
     resp = json.dumps(res)
     return resp
+
 
 @app.route('/api/user/info', methods=['GET'])
 def vuerouter():
@@ -769,6 +1405,7 @@ def vuerouter():
         #     print(resp)
         return resp
 
+
 # if __name__ == "__main__":
 #     app.run(host='0.0.0.0',port='2222')
 # #     app.run(debug=True)
@@ -776,6 +1413,7 @@ def vuerouter():
 """
 对socketio进行一些监听设置
 """
+
 
 @socketio.on('subscribe', namespace='/test')
 def subscribe(data):
@@ -791,6 +1429,7 @@ def subscribe(data):
     # print('thread already run')
     print('done')
 
+
 @socketio.on('message', namespace='/test')
 def message(data):
     print('recived message', data)
@@ -799,10 +1438,14 @@ def message(data):
     # data = json.loads(data)
 
     print(data['msg'])
-    if(data['msg']['channel']):
-        print(data['msg']['channel'],data['msg']['currval'])
-       # set_servo_angle(int(data['msg']['channel']),int(data['msg']['currval']))
-    if (data['username']):
+    if (data['msg'] == 'hahahahahha'):
+        emit('response', {'code': '200', 'msg': 'response from backend server'}, namespace='/test')
+    elif (data['msg']['channel']):
+        print(data['msg']['channel'], data['msg']['currval'])
+        t = threading.Thread(target=set_servo_angle, args=(int(data['msg']['channel']), int(data['msg']['currval'])))
+        t.start()
+        # set_servo_angle(int(data['msg']['channel']),int(data['msg']['currval']))
+    elif (data['username']):
         if (data['username'] == 'pose'):
             channel = 22
         #    set_servo_angle(channel, data['msg'])
@@ -854,11 +1497,13 @@ def message(data):
     # print('done')
     # emit('response', {'code': '200', 'msg': data['msg']}, namespace='/test')
 
+
 @socketio.on('connect')
 def connect():
     print('connect ')
     print('sent response')
     emit('connected', {'code': '200', 'msg': 'connected'}, namespace='/test')
+
 
 #     task=socketio.start_background_task(schedule_check())
 #     time.sleep(5)
@@ -870,6 +1515,7 @@ def connect():
 def disconnect():
     print('disconnect ')
     emit('disconnect', {'code': '200', 'msg': 'disconnect'})
+
 
 #     print('sid ',sid)
 #     print('environ ',environ)

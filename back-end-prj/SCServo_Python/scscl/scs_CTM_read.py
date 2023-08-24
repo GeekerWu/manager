@@ -67,8 +67,10 @@ else:
     quit()
 
 while 1:
-    print("Press read or write to continue! (or press ESC to quit!)")
-    operation=input('please in put \'w\'to write, \'r\' to read , \'s\' to status ')
+    #print("Press read or write to continue! (or press ESC to quit!)")
+
+    #operation=input('please in put \'w\'to write, \'r\' to read , \'s\' to status ')
+    operation = 's'
     if operation=='w':
         print('input w write operation')
         SCS_ID=int(input('SCS_ID:'))
@@ -100,17 +102,43 @@ while 1:
             print(packetHandler.getRxPacketError(scs_error))
 
     elif operation == 's':
-        print('input s read status')
-        SCS_ID = int(input('SCS_ID:'))
+        # print('input s read status')
+        # SCS_ID = int(input('SCS_ID:'))
+        SCS_ID = int(1)
         # Read SCServo present position
-        scs_present_load2b, scs_comm_result, scs_error = packetHandler.ReadLoad(SCS_ID)
+        scs_present_load2b,datastring, scs_comm_result, scs_error = packetHandler.ReadLoad(SCS_ID)
         if scs_comm_result != COMM_SUCCESS:
             print(packetHandler.getTxRxResult(scs_comm_result))
         elif scs_error != 0:
             print(packetHandler.getRxPacketError(scs_error))
-        else :
-            print("load is : 2b: %d " % (scs_present_load2b))
+        else:
+            # print("load is : 2b: %d " % (scs_present_load2b),datastring)
+            moving, scs_comm_result, scs_error = packetHandler.ReadMoving(SCS_ID)
+            if abs(scs_present_load2b) >60 and moving==0:
+                scs_present_currp2b, scs_comm_result, scs_error = packetHandler.ReadCurrPosition(SCS_ID)
+                target_position = scs_present_currp2b
+                print("load is :  %d ，curr position is：  %d , moving flag is: %d" % (scs_present_load2b,target_position,moving))
+                MOVING_SPEED = 10
+                MOVING_STEP=5
+                if scs_present_load2b>0 and scs_present_currp2b in range(100, 900, 1):
+                    target_position=scs_present_currp2b+MOVING_STEP
+                elif scs_present_load2b<0 and scs_present_currp2b in range(100, 900, 1):
+                    target_position = scs_present_currp2b - MOVING_STEP
+                if target_position not in range(100, 900, 1):
+                    print('position out of rage')
+                    if scs_present_load2b > 0:
+                        target_position = scs_present_currp2b + 80
+                    elif scs_present_load2b < 0:
+                        target_position = scs_present_currp2b - 80
+                    scs_comm_result, scs_error = packetHandler.WritePos(SCS_ID, target_position, 0, 400)
+                    scs_comm_result, scs_error = packetHandler.WritePos(SCS_ID, 511, 0, 100)
+                elif target_position >= 100 and target_position <= 900:
+                    scs_comm_result, scs_error = packetHandler.WritePos(SCS_ID, target_position, 0, MOVING_SPEED)
+                    # print(target_position)
 
+
+
+        '''
         scs_present_tmp4b, scs_present_tmp2b, scs_present_tmp1b, scs_comm_result, scs_error = packetHandler.ReadTmp(
             SCS_ID)
         if scs_comm_result != COMM_SUCCESS:
@@ -131,8 +159,8 @@ while 1:
             # print("voltage is :4b: %d 2b: %d 1b: %d" % (scs_present_volt4b, scs_present_volt2b, scs_present_volt1b))
             print("voltage is: 1b: %d" % (scs_present_volt1b))
 
-        # scs_present_currp4b, \
-        scs_present_currp2b, scs_comm_result, scs_error = packetHandler.ReadCurrPosition(SCS_ID)
+        scs_present_currp4b, scs_present_currp2b, scs_present_currp1b, scs_comm_result, scs_error = packetHandler.ReadCurrPosition(
+            SCS_ID)
         if scs_comm_result != COMM_SUCCESS:
             print(packetHandler.getTxRxResult(scs_comm_result))
         elif scs_error != 0:
@@ -140,6 +168,8 @@ while 1:
         else:
             print("current position is :4b: %d 2b: %d 1b: %d" % (scs_present_currp4b, scs_present_currp2b, scs_present_currp1b))
             print("scs error",scs_error)
+        '''
+
 
 
 
